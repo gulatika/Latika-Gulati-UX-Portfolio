@@ -43,7 +43,17 @@
       </div>
     </sc-if>
     <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
-      <button onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpen }}" style="font-family:'JetBrains Mono',monospace;font-size:13px;background:none;border:1px solid rgba(35,31,26,.25);color:#231F1A;padding:10px 16px;border-radius:8px;cursor:pointer;min-height:44px">{{ menuLabel }}</button>
+      <button onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpen }}" aria-label="{{ menuLabel }}" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:none;border:1px solid rgba(35,31,26,.25);color:#231F1A;width:44px;height:44px;border-radius:8px;cursor:pointer;padding:0">
+        <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+          <span style="display:block;width:20px;height:2px;background:#231F1A;transform:translateY(1px) rotate(45deg)"></span>
+          <span style="display:block;width:20px;height:2px;background:#231F1A;transform:translateY(-3px) rotate(-45deg)"></span>
+        </sc-if>
+        <sc-if value="{{ menuClosed }}" hint-placeholder-val="{{ true }}">
+          <span style="display:block;width:20px;height:2px;background:#231F1A"></span>
+          <span style="display:block;width:20px;height:2px;background:#231F1A"></span>
+          <span style="display:block;width:20px;height:2px;background:#231F1A"></span>
+        </sc-if>
+      </button>
     </sc-if>
     <sc-if value="{{ menuVisible }}" hint-placeholder-val="{{ false }}">
       <div style="position:absolute;top:100%;left:0;right:0;background:#FBF7EF;border-bottom:1px solid rgba(35,31,26,.14);display:flex;flex-direction:column;align-items:flex-start;padding:6px clamp(24px,7vw,72px) 18px">
@@ -64,15 +74,16 @@
       <svg style="position:absolute;top:34px;left:8px;pointer-events:none;opacity:.85;animation:spin 14s linear infinite" width="22" height="22" viewBox="0 0 24 24" stroke="#A09BE7" aria-hidden="true"><use href="#sp-star"></use></svg>
     </sc-if>
     <div style="display:flex;flex-wrap:wrap;gap:40px;align-items:center">
-      <div style="flex:1 1 460px;min-width:0">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#862809;display:inline-flex;align-items:center;gap:9px;margin-bottom:16px"><span style="width:7px;height:7px;background:#A09BE7;border-radius:2px;flex:none"></span>UX designer who thinks like an engineer</div>
-        <h1 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.1;letter-spacing:-.01em;font-size:clamp(38px,6vw,66px);margin:0;text-wrap:balance">Hi, I'm Latika! I make the hard parts feel <span style="background:linear-gradient(transparent 58%,#A09BE7 58% 92%,transparent 92%)">simple</span> and the risky parts feel <span style="background:linear-gradient(transparent 58%,#A09BE7 58% 92%,transparent 92%)">safe</span>.</h1>
-        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:40px">
+      
+      <div style="flex: 1 1 460px; min-width: 0; display: block">
+        
+        <h1 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.1;letter-spacing:-.01em;font-size:clamp(33px,5vw,54px);margin:0;text-wrap:balance">Hi, I'm Latika! I make the hard parts <span style="background: linear-gradient(transparent 58%, rgb(147, 175, 106) 58%, rgb(147, 175, 106) 92%, transparent 92%);">feel simple</span> and the risky parts&nbsp;<span style="background: linear-gradient(transparent 58%, rgb(147, 175, 106) 58%, rgb(147, 175, 106) 92%, transparent 92%);">feel safe.</span></h1>
+        
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#862809;display:inline-flex;align-items:center;gap:9px;margin:40px 0 0"><span style="width: 7px; height: 7px; background: rgb(160, 155, 231); border-radius: 2px; flex: 0 0 auto;"></span>Mission-driven UX designer who thinks like an engineer</div><div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:14px">
           <a href="#/" onClick="{{ goWork }}" style="background:#862809;color:#FFFAF0;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:13px;letter-spacing:.02em;padding:12px 20px;border-radius:9px;text-decoration:none;display:inline-block;transition:background .15s,transform .15s" style-hover="background:#6f210a;transform:translateY(-1px)">See the work</a>
           <a href="#/about" style="border:1px solid rgba(35,31,26,.2);color:#231F1A;font-family:'JetBrains Mono',monospace;font-size:13px;padding:12px 20px;border-radius:9px;text-decoration:none;display:inline-block;transition:border-color .15s,color .15s,transform .15s" style-hover="border-color:#862809;color:#862809;transform:translateY(-1px)">More about me</a>
         </div>
-      </div>
-      <div style="flex:0 1 300px;margin:0 auto;background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:16px;padding:18px;position:relative">
+      </div><div style="flex:0 1 300px;margin:0 auto;background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:16px;padding:18px;position:relative">
         <img src="assets/portrait.png" alt="Hand-drawn line portrait of Latika smiling" style="width:100%;display:block;mix-blend-mode:multiply;border-radius:10px">
         <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}">
           <svg style="position:absolute;top:-14px;right:-10px;pointer-events:none;opacity:.85;animation:bob 5s ease-in-out infinite" width="34" height="34" viewBox="0 0 24 24" stroke="#A09BE7" aria-hidden="true"><use href="#sp-star"></use></svg>
@@ -87,10 +98,12 @@
       <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:10px;right:-8px;pointer-events:none;opacity:.6" width="16" height="16" viewBox="0 0 18 18" stroke="#A09BE7" aria-hidden="true"><use href="#sp-plus"></use></svg></sc-if>
     </div>
 
-    <article style="display:flex;flex-wrap:wrap;gap:40px;align-items:center;margin-bottom:64px">
-<a href="#/case/0" aria-label="Read the iOTP case study" style="flex:1 1 320px;aspect-ratio:4/3;border-radius:14px;background:#F3EBDC;border:1px solid rgba(35,31,26,.14);overflow:hidden;position:relative;text-decoration:none;transition:transform .25s ease,border-color .25s ease" style-hover="transform:translateY(-4px);border-color:#862809"><img src="assets/case-iotp.jpg" alt="The iOTP interactive verification flow on a phone screen" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block"></a>      <div style="flex:1 1 320px;min-width:0">
-        <h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.15;font-size:clamp(22px,2.6vw,28px);margin:0 0 14px">Calibrating friction on Capital One's iOTP</h3>
-        <p style="margin:0;font-size:15px">Streamlined Capital One's Interactive OTP experience, balancing security requirements with measurable usability gains.</p>
+    <article style="display:flex;flex-wrap:wrap;gap:40px;align-items:center;margin-bottom:64px;position:relative">
+      <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:-18px;left:-14px;pointer-events:none;opacity:.5;animation:bob 6s ease-in-out infinite" width="20" height="20" viewBox="0 0 24 24" stroke="#A09BE7" aria-hidden="true"><use href="#sp-star"></use></svg></sc-if>
+      <a href="#/case/0" aria-label="Read the iOTP case study" style="flex:1 1 320px;aspect-ratio:4/3;border-radius:14px;background:#F3EBDC;border:1px solid rgba(35,31,26,.14);overflow:hidden;position:relative;text-decoration:none;transition:transform .25s ease,border-color .25s ease" style-hover="transform:translateY(-4px);border-color:#862809"><img src="assets/case-iotp.jpg" alt="The iOTP interactive verification flow on a phone screen" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block"></a>
+      <div style="flex:1 1 320px;min-width:0">
+        <span style="display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#413B8F;background:rgba(160,155,231,.2);border:1px solid #A09BE7;padding:6px 11px;border-radius:20px;margin-bottom:14px">Capital One</span><h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.15;font-size:clamp(22px,2.6vw,28px);margin:0 0 14px">Calibrating friction on Capital One's iOTP</h3>
+        <p style="margin:0;font-size:15px">Streamlined Capital One's iOTP (interactive one time pin) experience, balancing security requirements with measurable usability gains.</p>
         <div style="display:flex;flex-wrap:wrap;gap:8px 18px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:13px;opacity:.9"><span><b style="color:#231F1A;font-weight:500">Role</b> UX/UI</span><span><b style="color:#231F1A;font-weight:500">Timeline</b> 6 weeks</span><span><b style="color:#231F1A;font-weight:500">Tools</b> Figma, UserTesting.com</span></div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">Authentication</span><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">Interaction Design</span><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">Research</span></div>
         <a href="#/case/0" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#862809;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s" style-hover="border-bottom-color:#862809">Read the case study →</a>
@@ -100,7 +113,7 @@
     <article style="display:flex;flex-wrap:wrap-reverse;gap:40px;align-items:center;margin-bottom:64px;flex-direction:row-reverse">
       <a href="#/case/1" aria-label="Read the Identity Platform case study" style="flex:1 1 320px;aspect-ratio:4/3;border-radius:14px;background:#F3EBDC;border:1px solid rgba(35,31,26,.14);display:flex;align-items:center;justify-content:center;position:relative;text-decoration:none;transition:transform .25s ease,border-color .25s ease" style-hover="transform:translateY(-4px);border-color:#862809"><span style="font-family:'Newsreader',Georgia,serif;font-size:60px;color:#862809;opacity:.3">ID</span><span style="position:absolute;bottom:12px;left:14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a4038;opacity:.75">case study visual</span></a>
       <div style="flex:1 1 320px;min-width:0">
-        <h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.15;font-size:clamp(22px,2.6vw,28px);margin:0 0 14px">Designing for alignment with the Identity Platform</h3>
+        <span style="display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#413B8F;background:rgba(160,155,231,.2);border:1px solid #A09BE7;padding:6px 11px;border-radius:20px;margin-bottom:14px">Capital One</span><h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.15;font-size:clamp(22px,2.6vw,28px);margin:0 0 14px">Designing for alignment with the Identity Platform</h3>
         <p style="margin:0;font-size:15px">Led workshops and influenced cross-functional alignment to lay the foundation for Capital One's Identity Platform.</p>
         <div style="display:flex;flex-wrap:wrap;gap:8px 18px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:13px;opacity:.9"><span><b style="color:#231F1A;font-weight:500">Role</b> UX Designer</span><span><b style="color: rgb(35, 31, 26); font-weight: 500;">Timeline</b>&nbsp;3 months</span><span><b style="color:#231F1A;font-weight:500">Tools</b> Figma, workshops</span></div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">Platform Strategy</span><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">Facilitation</span><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">Systems Thinking</span></div>
@@ -111,9 +124,10 @@
     <div>
       <sc-for list="{{ listRows }}" as="row" hint-placeholder-count="4">
         <a href="{{ row.href }}" style="display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;padding:20px 4px;border-bottom:1px solid rgba(35,31,26,.14);text-decoration:none;transition:padding-left .2s ease" style-hover="padding-left:12px">
-          <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#862809;opacity:.9">{{ row.num }}</span>
+          
           <span style="min-width:0"><span style="font-family:'Newsreader',Georgia,serif;font-size:19px;color:#231F1A">{{ row.name }}</span><span style="display:block;font-size:14.5px;color:#4a4038;opacity:.9;margin-top:3px">{{ row.desc }}</span>
             <span style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+              <sc-if value="{{ row.client }}" hint-placeholder-val="{{ true }}"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#413B8F;background:rgba(160,155,231,.2);border:1px solid #A09BE7;padding:6px 11px;border-radius:20px">{{ row.client }}</span></sc-if>
               <sc-for list="{{ row.tags }}" as="rtag" hint-placeholder-count="2"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">{{ rtag }}</span></sc-for>
             </span>
           </span>
@@ -124,7 +138,7 @@
 
   <section style="max-width:920px;margin:0 auto;padding:64px clamp(24px,7vw,72px)">
     <div style="background:#464039;color:#FBF7EF;border-radius:20px;padding:clamp(38px,5vw,56px) clamp(24px,5vw,44px);position:relative;overflow:hidden">
-      <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:22px;right:26px;pointer-events:none;opacity:.85;animation:spin 14s linear infinite" width="26" height="26" viewBox="0 0 28 22" stroke="#A09BE7" aria-hidden="true"><use href="#sp-spiral"></use></svg></sc-if>
+      <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:22px;right:26px;pointer-events:none;opacity:.85;animation:spin 14s linear infinite" width="26" height="26" viewBox="0 0 28 22" stroke="#A09BE7" aria-hidden="true"><use href="#sp-spiral"></use></svg><svg style="position:absolute;bottom:26px;left:18px;pointer-events:none;opacity:.4" width="15" height="15" viewBox="0 0 18 18" stroke="#A09BE7" aria-hidden="true"><use href="#sp-plus"></use></svg></sc-if>
       <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#e9e0d2;display:inline-flex;align-items:center;gap:9px;margin-bottom:16px"><span style="width:7px;height:7px;background:#A09BE7;border-radius:2px;flex:none"></span>How I think about it</div>
       <h2 style="font-family:'Newsreader',Georgia,serif;color:#FBF7EF;font-weight:500;line-height:1.1;font-size:clamp(26px,3.4vw,38px);max-width:20ch;margin:0">Great design isn't frictionless. It's <span style="color:#A09BE7">calibrated</span>.</h2>
       <p style="max-width:54ch;margin:16px 0 0;color:#e9e0d2;opacity:.9">Users shouldn't have to think about the interface. They should just be able to accomplish what they came to do. But sometimes friction is the feature. Verifying your identity with a bank should feel secure. Navigating a complex help center should feel guided. My job is to know the difference and design accordingly.</p>
@@ -133,7 +147,8 @@
   </section>
 
   <section style="max-width:920px;margin:0 auto;padding:64px clamp(24px,7vw,72px)">
-    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:40px;border-top:1px solid rgba(35,31,26,.14);padding-top:24px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:40px;border-top:1px solid rgba(35,31,26,.14);padding-top:24px;position:relative">
+      <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:12px;left:-4px;pointer-events:none;opacity:.45" width="15" height="15" viewBox="0 0 18 18" stroke="#A09BE7" aria-hidden="true"><use href="#sp-plus"></use></svg></sc-if>
       <h2 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.1;font-size:clamp(24px,3vw,32px);margin:0">Off the clock</h2>
       <a href="#/otc" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#862809;text-decoration:none;white-space:nowrap" style-hover="text-decoration:underline">Take a look →</a>
     </div>
@@ -159,7 +174,7 @@
 </sc-if>
 
 <sc-if value="{{ isCase }}" hint-placeholder-val="{{ false }}">
-<div style="max-width:920px;margin:0 auto;padding:0 clamp(24px,7vw,72px);animation:fadeup .55s ease both">
+<div style="max-width: 920px; margin: 0 auto; padding: 0 clamp(24px,7vw,72px); animation: fadeup .55s ease both; position: relative">
   <div style="padding:64px 0 24px;max-width:760px;position:relative">
     <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:44px;right:6px;pointer-events:none;opacity:.85;animation:bob 5s ease-in-out infinite" width="22" height="22" viewBox="0 0 24 24" stroke="#A09BE7" aria-hidden="true"><use href="#sp-star"></use></svg></sc-if>
     <a href="#/" onClick="{{ goWork }}" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#862809;text-decoration:none">← All work</a>
@@ -173,6 +188,7 @@
       <div style="font-family:'JetBrains Mono',monospace;font-size:13px"><span style="color:#862809;display:block;margin-bottom:3px">Tools</span><span style="color:#231F1A">{{ csTools }}</span></div>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <sc-if value="{{ csClient }}" hint-placeholder-val="{{ true }}"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#413B8F;background:rgba(160,155,231,.2);border:1px solid #A09BE7;padding:6px 11px;border-radius:20px">{{ csClient }}</span></sc-if>
       <sc-for list="{{ csTags }}" as="tag" hint-placeholder-count="3"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">{{ tag }}</span></sc-for>
     </div>
   </div>
@@ -219,7 +235,8 @@
       <h1 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.14;letter-spacing:-.01em;font-size:clamp(30px,4.5vw,46px);margin:0;text-wrap:balance">I started as an engineer. I think that's my whole advantage.</h1>
     </div>
   </div>
-  <div style="max-width:none;padding-bottom:40px">
+  <div style="max-width:none;padding-bottom:40px;position:relative">
+    <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:46px;right:8px;pointer-events:none;opacity:.4" width="24" height="17" viewBox="0 0 30 20" stroke="#A09BE7" aria-hidden="true"><use href="#sp-squig"></use></svg></sc-if>
     <h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;font-size:clamp(20px,2.4vw,24px);margin:40px 0 12px">How I got here</h3>
     <p style="margin:0 0 15px;max-width:72ch">I started out as a software engineer, close enough to the build to earn 24 patents, before moving into product design. I left Capital One and came back, so I've seen the same systems from both the engineering side and the design side, and that double vision is what I lead with.</p>
     <h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;font-size:clamp(20px,2.4vw,24px);margin:40px 0 12px">How I work</h3>
@@ -306,7 +323,7 @@
   </div>
 </footer>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;showSparkles&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Personality&quot;},&quot;autoShuffleHobby&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Personality&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;showSparkles&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Personality&quot;},&quot;autoShuffleHobby&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Personality&quot;}}">
 class Component extends DCLogic {
   state = {
     hash: (typeof location !== 'undefined' && location.hash) || '#/',
@@ -371,7 +388,7 @@ class Component extends DCLogic {
       title: 'Calibrating Friction: Redesigning iOTP Authentication at Capital One',
       summary: "Streamlined Capital One's Interactive OTP experience, balancing security requirements with measurable usability gains.",
       role: 'Solo UX/UI Designer', team: 'Me (designer), Product Owner, Developers', timeline: '6 weeks', tools: 'Figma, UserTesting.com',
-      tags: ['Authentication', 'Interaction Design', 'Research'],
+      client: 'Capital One', tags: ['Authentication', 'Interaction Design', 'Research'],
       hooks: ['how I decided where the moment of friction should go', 'the tradeoff between security cost and completion rate', 'what I would test next if I were still on it'],
       sections: [
         { h: 'The problem: a secure flow with a drop-off problem', ps: [
@@ -407,7 +424,7 @@ class Component extends DCLogic {
       title: 'Designing for Alignment: The Identity Platform at Capital One',
       summary: "Led workshops and influenced cross-functional alignment to lay the foundation for Capital One's Identity Platform.",
       role: 'UX Designer in a cross-functional task force', team: '20+ stakeholders across design, engineering, product, and identity leadership', timeline: '6 months', tools: 'Figma, workshop facilitation, PRD collaboration',
-      tags: ['Platform Strategy', 'Facilitation', 'Systems Thinking'],
+      client: 'Capital One', tags: ['Platform Strategy', 'Facilitation', 'Systems Thinking'],
       hooks: ['how visible note-taking became an influence tool', 'turning workshop energy into a defensible roadmap', 'designing screens that were meant to be argued with'],
       sections: [
         { h: 'Overview and problem', ps: [
@@ -429,7 +446,7 @@ class Component extends DCLogic {
           'When stakeholders disagreed, I documented via meeting notes on a shared screen every session, even when we were all in the same room. By making the note-taking visible in real time, everyone could see exactly what was being captured as decisions were made. Once something was written down in front of the whole room, it became much harder to relitigate later.',
           'Since design requirements risked getting deprioritized in the product development lifecycle, I embedded them directly into the PRD to make sure they would get addressed.',
           "When individual influence wasn't sufficient, I escalated strategically, pulling in my design manager to add context and weight without creating conflict."
-        ], fig: 'workshop artifacts and prioritization matrix' },
+        ] },
         { h: 'UI as a conversation starter', ps: [
           "The initial design work on this project wasn't intended to be built. Instead, it was intended to create something for people to react to. In a problem space this large and this ambiguous, waiting for perfect requirements before designing is a losing strategy since requirements shift and stakeholders change their minds. People discover what they actually want by reacting to something concrete.",
           'By producing relatively lightweight proof-of-concept screens early, the team had something to push against. Stakeholders who had nodded along to a verbal description of a feature could now say: that\'s not quite what I had in mind. The faster you put something in front of people, the faster the real conversation begins.',
@@ -447,10 +464,10 @@ class Component extends DCLogic {
       quoteWho: 'Michelle Phanthongphay, Senior Product Designer, worked with Latika at American Express'
     },
     {
-      title: 'Rethinking how travelers find a destination',
+      title: 'Re-imagining the experience for travel advisors to curate a trip for their clients',
       summary: "Full case study incoming. Project Expedition is a luxury travel platform I'm the designer on, and it's my most active client work right now.",
       role: 'Freelance UX Designer', team: 'Project Expedition', timeline: 'Ongoing', tools: 'Figma',
-      tags: ['Travel', 'Mobile UX'],
+      client: 'Project Expedition', tags: ['Travel', 'Mobile UX'],
       sections: [
         { h: 'A look at the work', ps: ["Full case study incoming. In the meantime, here's a look at the work."], fig: 'project screenshots (coming soon)' }
       ]
@@ -459,7 +476,7 @@ class Component extends DCLogic {
       title: 'Designing for the Builder: Redesigning an Internal Developer Tool',
       summary: 'Consolidated and redesigned three internal tools into a single, unified platform, significantly streamlining and enhancing the developer experience.',
       role: 'Solo UX Designer', team: '7 people across design, product, and engineering', timeline: '6 weeks', tools: 'Figma, usability testing, WCAG accessibility standards',
-      tags: ['Enterprise', 'Developer Tools', 'Accessibility'],
+      client: 'Capital One', tags: ['Enterprise', 'Developer Tools', 'Accessibility'],
       sections: [
         { h: 'The tool behind the tool', ps: [
           'Eno Web Assistant is a Capital One browser extension that uses virtual card numbers to make online shopping more secure. Behind it is the KitchenAid Extension, a developer-facing tool used to create and maintain the rules that make Eno work across thousands of merchant checkout pages.'
@@ -476,7 +493,7 @@ class Component extends DCLogic {
       title: 'Designing for Self-Sufficiency: The One AP Help Center at American Express',
       summary: "Enhanced both American Express' Accounts Payable and Accounts Receivable solutions, driving increased efficiency and value.",
       role: 'Solo UX Designer', team: '5 people across design, product, and engineering', timeline: '8 weeks', tools: 'Figma, WCAG accessibility standards',
-      tags: ['Enterprise', 'Help Center'],
+      client: 'American Express', tags: ['Enterprise', 'Help Center'],
       sections: [
         { h: 'The problem', ps: [
           'One AP is an American Express accounts payable product used by business buyers to manage invoices, payments, and suppliers. When customers hit problems, they called into the customer service line, meaning the representatives were spending significant time fielding questions a well-designed self-service experience could answer independently.'
@@ -492,7 +509,7 @@ class Component extends DCLogic {
       title: 'Brand and identity work',
       summary: "A small collection of logos and marks I've made for clients and side projects, including my own studio, Lati Creative.",
       role: 'Designer', team: 'Freelance', timeline: 'Ongoing', tools: 'Illustrator, Figma',
-      tags: ['Branding'],
+      client: 'Lati Creative', tags: ['Branding'],
       sections: [
         { h: 'The collection', ps: ['A small collection of logos and marks made for clients and side projects, including my own studio, Lati Creative.'], fig: 'logos and marks (coming soon)' }
       ]
@@ -517,7 +534,8 @@ class Component extends DCLogic {
       isMobile, isDesktop: !isMobile,
       menuOpen: this.state.menuOpen,
       menuVisible: isMobile && this.state.menuOpen,
-      menuLabel: this.state.menuOpen ? 'close' : 'menu',
+      menuLabel: this.state.menuOpen ? 'Close menu' : 'Open menu',
+      menuClosed: !this.state.menuOpen,
       toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
       closeMenu: () => this.setState({ menuOpen: false }),
       goWork: this._goWork,
@@ -526,13 +544,13 @@ class Component extends DCLogic {
       hobby: this.state.hobby,
       shuffleHobby: this._shuffle,
       listRows: [
-        { href: '#/case/2', num: '03', name: 'Rethinking how travelers find a destination', desc: 'Project Expedition, a luxury travel platform. Full case study incoming.', tags: ['Travel', 'Mobile UX'] },
-        { href: '#/case/3', num: '04', name: 'Internal tools for developers', desc: 'Three internal tools consolidated into one unified platform.', tags: ['Enterprise', 'Developer Tools', 'Accessibility'] },
-        { href: '#/case/4', num: '05', name: 'One AP at American Express', desc: 'Streamlining accounts payable and receivable.', tags: ['Enterprise', 'Help Center'] },
-        { href: '#/case/5', num: '06', name: 'Brand and identity work', desc: 'As Lati Creative I have been tasked create brand identities. Here are a collection of logos as examples', tags: ['Branding', 'Identity'] }
+        { href: '#/case/2', num: '03', name: 'Re-imagining the experience for travel advisors to curate a trip for their clients', desc: 'Project Expedition, a luxury travel platform. Full case study incoming.', client: 'Project Expedition', tags: ['Travel', 'Mobile UX'] },
+        { href: '#/case/3', num: '04', name: 'Internal tools for developers', desc: 'Three internal tools consolidated into one unified platform.', client: 'Capital One', tags: ['Enterprise', 'Developer Tools', 'Accessibility'] },
+        { href: '#/case/4', num: '05', name: 'One AP at American Express', desc: 'Streamlining accounts payable and receivable.', client: 'American Express', tags: ['Enterprise', 'Help Center'] },
+        { href: '#/case/5', num: '06', name: 'Brand and identity work', desc: 'As Lati Creative I have been tasked create brand identities. Here are a collection of logos as examples', client: 'Lati Creative', tags: ['Branding', 'Identity'] }
       ],
       csTitle: c.title, csSummary: c.summary, csRole: c.role, csTeam: c.team, csTimeline: c.timeline, csTools: c.tools,
-      csTags: c.tags, csHooks: c.hooks || this._defaultHooks,
+      csClient: c.client || '', csTags: c.tags, csHooks: c.hooks || this._defaultHooks,
       csSections: c.sections.map(norm),
       csQuote: c.quote || '', csQuoteWho: c.quoteWho || '',
       prevHref: '#/case/' + prev, prevTitle: this._cases[prev].title,
@@ -548,8 +566,5 @@ class Component extends DCLogic {
   }
 }
 </script>
-</body>
-</html>
-
 </body>
 </html>
