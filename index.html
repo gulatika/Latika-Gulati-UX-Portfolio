@@ -130,6 +130,7 @@
               <sc-if value="{{ row.client }}" hint-placeholder-val="{{ true }}"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#413B8F;background:rgba(160,155,231,.2);border:1px solid #A09BE7;padding:6px 11px;border-radius:20px">{{ row.client }}</span></sc-if>
               <sc-for list="{{ row.tags }}" as="rtag" hint-placeholder-count="2"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">{{ rtag }}</span></sc-for>
             </span>
+            <span style="display:flex;align-items:center;gap:7px;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#862809;text-decoration:underline;text-underline-offset:3px">Read the case study<span aria-hidden="true">→</span></span>
           </span>
         </a>
       </sc-for>
@@ -153,7 +154,7 @@
       <a href="#/otc" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#862809;text-decoration:none;white-space:nowrap" style-hover="text-decoration:underline">Take a look →</a>
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:40px;align-items:center">
-      <p style="flex:1 1 320px;max-width:40ch;margin:0">The making doesn't stop when the laptop closes. I run a ceramics studio with a friend, and always have a hobby going. No agenda, just the stuff I make for the joy of it.</p>
+      <p style="flex:1 1 320px;max-width:40ch;margin:0">My creative process overflows well into my personal time. I always have some sort of hobby going and am always creating/making/exploring/tinkering. Check out what I'm up to now!</p>
       <div style="flex:1 1 320px;background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:16px;padding:24px;position:relative">
         <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:-13px;right:18px;pointer-events:none;opacity:.85;animation:bob 5s ease-in-out infinite" width="26" height="26" viewBox="0 0 24 24" stroke="#758E4F" aria-hidden="true"><use href="#sp-star"></use></svg></sc-if>
         <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#862809;display:inline-flex;align-items:center;gap:9px;margin-bottom:16px"><span style="width:7px;height:7px;background:#A09BE7;border-radius:2px;flex:none"></span>Currently excited about</div>
@@ -168,20 +169,20 @@
       <h2 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.1;font-size:clamp(24px,3vw,32px);margin:0">About</h2>
       <a href="#/about" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#862809;text-decoration:none;white-space:nowrap" style-hover="text-decoration:underline">The whole story →</a>
     </div>
-    <p style="font-family:'Newsreader',Georgia,serif;font-size:clamp(20px,2.6vw,26px);color:#231F1A;max-width:32ch;line-height:1.3;margin:0">An engineer who became a designer, a boomerang who left Capital One and came back, and someone who cares a lot about the small moments most people miss.</p>
+    <p style="font-family:'Newsreader',Georgia,serif;font-size:clamp(18px,2.1vw,22px);color:#231F1A;max-width:52ch;line-height:1.4;margin:0">Hi! I'm Latika, an engineer who became a designer to try and solve more human problems. I always joke that I have an excess of empathy so I might as well get paid for it! I enjoy the creativity and collaborative nature of product development and prefer to come at it from a mission-focused human-forward angle.</p>
   </section>
 </div>
 </sc-if>
 
 <sc-if value="{{ isCase }}" hint-placeholder-val="{{ false }}">
-<div style="max-width: 920px; margin: 0 auto; padding: 0 clamp(24px,7vw,72px); animation: fadeup .55s ease both; position: relative">
+<div style="max-width:920px;margin:0 auto;padding:0 clamp(24px,7vw,72px);animation:fadeup .55s ease both;position:relative">
   <div style="padding:64px 0 24px;max-width:760px;position:relative">
     <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:44px;right:6px;pointer-events:none;opacity:.85;animation:bob 5s ease-in-out infinite" width="22" height="22" viewBox="0 0 24 24" stroke="#A09BE7" aria-hidden="true"><use href="#sp-star"></use></svg></sc-if>
     <a href="#/" onClick="{{ goWork }}" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#862809;text-decoration:none">← All work</a>
     <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#862809;display:inline-flex;align-items:center;gap:9px;margin:20px 0 16px;width:100%"><span style="width:7px;height:7px;background:#A09BE7;border-radius:2px;flex:none"></span>Case study</div>
     <h1 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.1;letter-spacing:-.01em;font-size:clamp(30px,5vw,52px);margin:0 0 18px;text-wrap:balance">{{ csTitle }}</h1>
     <p style="font-size:clamp(17px,2vw,21px);max-width:46ch;margin:0">{{ csSummary }}</p>
-    <div style="display:flex;flex-wrap:wrap;gap:14px 28px;margin:24px 0;padding:18px 0;border-top:1px solid rgba(35,31,26,.14);border-bottom:1px solid rgba(35,31,26,.14)">
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, max-content)); gap: 14px 28px; margin: 24px 0; padding: 18px 0; border-top: 1px solid rgba(35,31,26,.14); border-bottom: 1px solid rgba(35,31,26,.14); position: relative">
       <div style="font-family:'JetBrains Mono',monospace;font-size:13px"><span style="color:#862809;display:block;margin-bottom:3px">Role</span><span style="color:#231F1A">{{ csRole }}</span></div>
       <div style="font-family:'JetBrains Mono',monospace;font-size:13px"><span style="color:#862809;display:block;margin-bottom:3px">Team</span><span style="color:#231F1A">{{ csTeam }}</span></div>
       <div style="font-family:'JetBrains Mono',monospace;font-size:13px"><span style="color:#862809;display:block;margin-bottom:3px">Timeline</span><span style="color:#231F1A">{{ csTimeline }}</span></div>
@@ -192,7 +193,7 @@
       <sc-for list="{{ csTags }}" as="tag" hint-placeholder-count="3"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">{{ tag }}</span></sc-for>
     </div>
   </div>
-  <div style="background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:14px;padding:24px;margin:40px 0;max-width:760px;position:relative">
+  <div style="background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:14px;padding:24px;margin:40px 0;max-width:760px;box-sizing:border-box;position:relative">
     <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:-12px;left:22px;pointer-events:none;opacity:.85" width="26" height="18" viewBox="0 0 30 20" stroke="#758E4F" aria-hidden="true"><use href="#sp-squig"></use></svg></sc-if>
     <h4 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;font-size:16px;margin:0 0 12px">Ask me about</h4>
     <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin:0;padding:0">
@@ -307,13 +308,13 @@
       <div style="flex:1 1 320px">
         <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#862809;display:inline-flex;align-items:center;gap:9px;margin-bottom:16px"><span style="width:7px;height:7px;background:#A09BE7;border-radius:2px;flex:none"></span>Say hi</div>
         <h2 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;font-size:clamp(26px,3.4vw,36px);margin:0">Let's talk.</h2>
-        <p style="max-width:44ch;margin:12px 0 0">I'm seeking product design opportunities where systems thinking, stakeholder alignment, and technical collaboration matter. Based in the DC area, open to relocating and remote roles.</p>
+        <p style="max-width:44ch;margin:12px 0 0">I'm seeking mission-driven product design opportunities where systems thinking, stakeholder alignment, and technical collaboration matter. Based in the DC area, open to relocating and remote roles.</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:10px;font-family:'JetBrains Mono',monospace;font-size:14px">
-        <a href="mailto:latika.gulati.0@gmail.com" style="color:#231F1A;text-decoration:none" style-hover="color:#862809">latika.gulati.0@gmail.com</a>
-        <a href="https://www.linkedin.com/in/latikagulati/" style="color:#231F1A;text-decoration:none" style-hover="color:#862809">LinkedIn</a>
-        <a href="https://calendly.com/latika-gulati/new-meeting" style="color:#231F1A;text-decoration:none" style-hover="color:#862809">Grab time on my calendar</a>
-        <a href="#" style="color:#231F1A;text-decoration:none" style-hover="color:#862809">Download resume (PDF)</a>
+      <div style="display:flex;flex-direction:column;gap:10px;font-family:'JetBrains Mono',monospace;font-size:14px;align-self:flex-end">
+        <a href="mailto:latika.gulati.0@gmail.com" style="color:#231F1A;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(35,31,26,.4)" style-hover="color:#862809;text-decoration-color:#862809">latika.gulati.0@gmail.com</a>
+        <a href="https://www.linkedin.com/in/latikagulati/" style="color:#231F1A;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(35,31,26,.4)" style-hover="color:#862809;text-decoration-color:#862809">LinkedIn</a>
+        <a href="https://calendly.com/latika-gulati/new-meeting" style="color:#231F1A;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(35,31,26,.4)" style-hover="color:#862809;text-decoration-color:#862809">Grab time on my calendar</a>
+        <a href="#" style="color:#231F1A;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(35,31,26,.4)" style-hover="color:#862809;text-decoration-color:#862809">Download resume (PDF)</a>
       </div>
     </div>
     <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:40px;padding-top:20px;border-top:1px solid rgba(35,31,26,.14);font-family:'JetBrains Mono',monospace;font-size:12.5px;opacity:.8">
@@ -344,7 +345,7 @@ class Component extends DCLogic {
     window.addEventListener('hashchange', this._onHash);
     window.addEventListener('resize', this._onResize);
     if (this.props.autoShuffleHobby) {
-      this._timer = setInterval(() => this._shuffle(), 3000);
+      this._timer = setInterval(() => this._shuffle(), 20000);
     }
   }
   componentWillUnmount() {
@@ -386,7 +387,7 @@ class Component extends DCLogic {
   _cases = [
     {
       title: 'Calibrating Friction: Redesigning iOTP Authentication at Capital One',
-      summary: "Streamlined Capital One's Interactive OTP experience, balancing security requirements with measurable usability gains.",
+      summary: "Streamlined Capital One's Interactive OTP experience by balancing security requirements with measurable usability gains.",
       role: 'Solo UX/UI Designer', team: 'Me (designer), Product Owner, Developers', timeline: '6 weeks', tools: 'Figma, UserTesting.com',
       client: 'Capital One', tags: ['Authentication', 'Interaction Design', 'Research'],
       hooks: ['how I decided where the moment of friction should go', 'the tradeoff between security cost and completion rate', 'what I would test next if I were still on it'],
@@ -467,7 +468,7 @@ class Component extends DCLogic {
       title: 'Re-imagining the experience for travel advisors to curate a trip for their clients',
       summary: "Full case study incoming. Project Expedition is a luxury travel platform I'm the designer on, and it's my most active client work right now.",
       role: 'Freelance UX Designer', team: 'Project Expedition', timeline: 'Ongoing', tools: 'Figma',
-      client: 'Project Expedition', tags: ['Travel', 'Mobile UX'],
+      client: 'Project Expedition', tags: ['AI Search Integration', 'Design System', 'UX/UI Design'],
       sections: [
         { h: 'A look at the work', ps: ["Full case study incoming. In the meantime, here's a look at the work."], fig: 'project screenshots (coming soon)' }
       ]
@@ -493,7 +494,7 @@ class Component extends DCLogic {
       title: 'Designing for Self-Sufficiency: The One AP Help Center at American Express',
       summary: "Enhanced both American Express' Accounts Payable and Accounts Receivable solutions, driving increased efficiency and value.",
       role: 'Solo UX Designer', team: '5 people across design, product, and engineering', timeline: '8 weeks', tools: 'Figma, WCAG accessibility standards',
-      client: 'American Express', tags: ['Enterprise', 'Help Center'],
+      client: 'American Express', tags: ['Enterprise', 'Help Center', 'Usability Testing'],
       sections: [
         { h: 'The problem', ps: [
           'One AP is an American Express accounts payable product used by business buyers to manage invoices, payments, and suppliers. When customers hit problems, they called into the customer service line, meaning the representatives were spending significant time fielding questions a well-designed self-service experience could answer independently.'
@@ -509,7 +510,7 @@ class Component extends DCLogic {
       title: 'Brand and identity work',
       summary: "A small collection of logos and marks I've made for clients and side projects, including my own studio, Lati Creative.",
       role: 'Designer', team: 'Freelance', timeline: 'Ongoing', tools: 'Illustrator, Figma',
-      client: 'Lati Creative', tags: ['Branding'],
+      client: 'Lati Creative', tags: ['Stakeholder Management', 'Branding'],
       sections: [
         { h: 'The collection', ps: ['A small collection of logos and marks made for clients and side projects, including my own studio, Lati Creative.'], fig: 'logos and marks (coming soon)' }
       ]
@@ -544,10 +545,10 @@ class Component extends DCLogic {
       hobby: this.state.hobby,
       shuffleHobby: this._shuffle,
       listRows: [
-        { href: '#/case/2', num: '03', name: 'Re-imagining the experience for travel advisors to curate a trip for their clients', desc: 'Project Expedition, a luxury travel platform. Full case study incoming.', client: 'Project Expedition', tags: ['Travel', 'Mobile UX'] },
-        { href: '#/case/3', num: '04', name: 'Internal tools for developers', desc: 'Three internal tools consolidated into one unified platform.', client: 'Capital One', tags: ['Enterprise', 'Developer Tools', 'Accessibility'] },
-        { href: '#/case/4', num: '05', name: 'One AP at American Express', desc: 'Streamlining accounts payable and receivable.', client: 'American Express', tags: ['Enterprise', 'Help Center'] },
-        { href: '#/case/5', num: '06', name: 'Brand and identity work', desc: 'As Lati Creative I have been tasked create brand identities. Here are a collection of logos as examples', client: 'Lati Creative', tags: ['Branding', 'Identity'] }
+        { href: '#/case/2', num: '03', name: 'Re-imagining the experience for travel advisors to curate a trip for their clients', desc: 'Project Expedition, a luxury travel platform. Full case study incoming.', client: 'Project Expedition', tags: ['AI Search Integration', 'Design System', 'UX/UI Design'] },
+        { href: '#/case/3', num: '04', name: 'Creating an internal tool for developers to easily categorize credit card input slots within merchant webpages', desc: 'Three internal tools consolidated into one unified platform.', client: 'Capital One', tags: ['Enterprise', 'Developer Tools', 'Accessibility'] },
+        { href: '#/case/4', num: '05', name: 'Creating the help center for the customers of the One AP (One Accounts Payable) product', desc: 'Streamlining accounts payable and receivable.', client: 'American Express', tags: ['Enterprise', 'Help Center', 'Usability Testing'] },
+        { href: '#/case/5', num: '06', name: 'Brand and identity work', desc: 'As Lati Creative I have been tasked create brand identities. Here is a collection of my work', client: 'Lati Creative', tags: ['Stakeholder Management', 'Branding', 'Identity'] }
       ],
       csTitle: c.title, csSummary: c.summary, csRole: c.role, csTeam: c.team, csTimeline: c.timeline, csTools: c.tools,
       csClient: c.client || '', csTags: c.tags, csHooks: c.hooks || this._defaultHooks,
