@@ -59,7 +59,7 @@
             <line x1="0" y1="1" x2="20" y2="1" stroke="#231F1A" stroke-width="2"></line>
             <line x1="0" y1="7" x2="20" y2="7" stroke="#231F1A" stroke-width="2"></line>
             <line x1="0" y1="13" x2="20" y2="13" stroke="#231F1A" stroke-width="2"></line>
-          </svg
+          </svg>
         </sc-if>
       </button>
     </sc-if>
@@ -108,7 +108,7 @@
 
     <article style="display:flex;flex-wrap:wrap;gap:40px;align-items:center;margin-bottom:64px;position:relative">
       <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:-18px;left:-14px;pointer-events:none;opacity:.5;animation:bob 6s ease-in-out infinite" width="20" height="20" viewBox="0 0 24 24" stroke="#A09BE7" aria-hidden="true"><use href="#sp-star"></use></svg><svg style="position:absolute;bottom:-10px;right:2px;pointer-events:none;opacity:.45" width="16" height="16" viewBox="0 0 24 24" stroke="#758E4F" aria-hidden="true"><use href="#sp-heart"></use></svg></sc-if>
-      <a href="#/case/0" aria-label="Read the iOTP case study" style="flex:1 1 320px;aspect-ratio:4/3;border-radius:14px;background:#F3EBDC;border:1px solid rgba(35,31,26,.14);display:flex;align-items:center;justify-content:center;position:relative;text-decoration:none;transition:transform .25s ease,border-color .25s ease" style-hover="transform:translateY(-4px);border-color:#862809"><span style="font-family:'Newsreader',Georgia,serif;font-size:60px;color:#862809;opacity:.3">iO</span><span style="position:absolute;bottom:12px;left:14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a4038;opacity:.75">case study visual</span></a>
+      <a href="#/case/0" aria-label="Read the iOTP case study" style="flex:1 1 320px;aspect-ratio:4/3;border-radius:14px;background:#F3EBDC;border:1px solid rgba(35,31,26,.14);overflow:hidden;position:relative;text-decoration:none;transition:transform .25s ease,border-color .25s ease" style-hover="transform:translateY(-4px);border-color:#862809"><img src="assets/case-iotp.jpg" alt="The iOTP interactive verification flow on a phone screen" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block"></a>
       <div style="flex:1 1 320px;min-width:0">
         <span style="display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#413B8F;background:rgba(160,155,231,.2);border:1px solid #A09BE7;padding:6px 11px;border-radius:20px;margin-bottom:14px">Capital One</span><h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.15;font-size:clamp(22px,2.6vw,28px);margin:0 0 14px">Calibrating friction on Capital One's iOTP</h3>
         <p style="margin:0;font-size:15px">Streamlined Capital One's iOTP (interactive one time pin) experience, balancing security requirements with measurable usability gains.</p>
@@ -132,13 +132,12 @@
     <div>
       <sc-for list="{{ listRows }}" as="row" hint-placeholder-count="4">
         <a href="{{ row.href }}" style="display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;padding:20px 4px;border-bottom:1px solid rgba(35,31,26,.14);text-decoration:none;transition:padding-left .2s ease" style-hover="padding-left:12px;background:rgba(160,155,231,.09)">
-          
+          <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#862809;opacity:.9">{{ row.num }}</span>
           <span style="min-width:0"><span style="font-family:'Newsreader',Georgia,serif;font-size:19px;color:#231F1A">{{ row.name }}</span><span style="display:block;font-size:14.5px;color:#4a4038;opacity:.9;margin-top:3px">{{ row.desc }}</span>
             <span style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
               <sc-if value="{{ row.client }}" hint-placeholder-val="{{ true }}"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#413B8F;background:rgba(160,155,231,.2);border:1px solid #A09BE7;padding:6px 11px;border-radius:20px">{{ row.client }}</span></sc-if>
               <sc-for list="{{ row.tags }}" as="rtag" hint-placeholder-count="2"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">{{ rtag }}</span></sc-for>
             </span>
-            <span style="display:flex;align-items:center;gap:7px;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#862809;text-decoration:underline;text-underline-offset:3px">Read the case study<span aria-hidden="true">→</span></span>
           </span>
           <span aria-hidden="true" style="font-family:'JetBrains Mono',monospace;font-size:20px;color:#862809;justify-self:end;align-self:center;transition:transform .2s ease">→</span>
         </a>
@@ -202,9 +201,9 @@
       <sc-if value="{{ csClient }}" hint-placeholder-val="{{ true }}"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#413B8F;background:rgba(160,155,231,.2);border:1px solid #A09BE7;padding:6px 11px;border-radius:20px">{{ csClient }}</span></sc-if>
       <sc-for list="{{ csTags }}" as="tag" hint-placeholder-count="3"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">{{ tag }}</span></sc-for>
     </div>
-  <svg style="position: absolute; top: 424px; pointer-events: none; opacity: .85; left: 712px" width="26" height="18" viewBox="0 0 30 20" stroke="#758E4F" aria-hidden="true"><use href="#sp-squig"></use></svg></div>
+  </div>
   <div style="background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:14px;padding:24px;margin:40px 0;max-width:760px;box-sizing:border-box;position:relative">
-    <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"></sc-if>
+    <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:-12px;left:22px;pointer-events:none;opacity:.85" width="26" height="18" viewBox="0 0 30 20" stroke="#758E4F" aria-hidden="true"><use href="#sp-squig"></use></svg></sc-if>
     <h4 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;font-size:16px;margin:0 0 12px">Ask me about</h4>
     <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin:0;padding:0">
       <sc-for list="{{ csHooks }}" as="hook" hint-placeholder-count="3"><li style="padding-left:22px;position:relative;font-size:15px"><span style="position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:2px;background:#A09BE7"></span>{{ hook }}</li></sc-for>
@@ -264,7 +263,7 @@
         </div>
       </sc-for>
     </div>
-    
+    <a href="#contact" onClick="{{ goContact }}" style="background:#862809;color:#FFFAF0;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:13px;letter-spacing:.02em;padding:12px 20px;border-radius:9px;text-decoration:none;display:inline-block;transition:background .15s,transform .15s" style-hover="background:#6f210a;transform:translateY(-1px)">Say hi</a>
   </div>
 </div>
 </sc-if>
@@ -283,7 +282,7 @@
       <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#4a4038;opacity:.85;white-space:nowrap">Seconds, the studio I co-run</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;margin:10px 0 24px">
-      <sc-for list="{{ ceramicSlots }}" as="slot" hint-placeholder-count="6"><div style="aspect-ratio:1;background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:12.5px;opacity:.8">{{ slot }}</div></sc-for>
+      <sc-for list="{{ ceramicSlots }}" as="slot" hint-placeholder-count="5"><div style="aspect-ratio:1;background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:12px;overflow:hidden"><img src="{{ slot.src }}" alt="{{ slot.alt }}" style="width:100%;height:100%;object-fit:cover;display:block"></div></sc-for>
     </div>
     <div style="background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:16px;padding:24px;position:relative">
       <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:-13px;right:20px;pointer-events:none;opacity:.85;animation:bob 5s ease-in-out infinite" width="26" height="26" viewBox="0 0 24 24" stroke="#A09BE7" aria-hidden="true"><use href="#sp-star"></use></svg></sc-if>
@@ -617,7 +616,13 @@ class Component extends DCLogic {
         { q: 'Latika is a strong thinker. She works extremely well with stakeholders and team and is a delight to work with. She is a very fast learner and a UX-er at heart.', who: 'Noelle Fair, design leader, managed Latika directly' },
         { q: 'Latika brings an incredible combination of strategy and creativity. Her previous experience as a developer has set her up to excel as a designer.', who: 'Rachel Williams Belter, Digital Accessibility Product Design, American Express' }
       ],
-      ceramicSlots: ['ceramics photo', 'ceramics photo', 'ceramics photo', 'ceramics photo', 'ceramics photo'],
+      ceramicSlots: [
+        { src: 'assets/ceramics-sheep-stripe.jpg', alt: 'Two stacked mugs, one with a hand-painted sheep, one striped in warm colors' },
+        { src: 'assets/ceramics-bow-mug.jpg', alt: 'Cream ceramic mug with a sculpted white bow on the handle' },
+        { src: 'assets/ceramics-vases.jpg', alt: 'Four small hand-painted ceramic vases holding tulips' },
+        { src: 'assets/ceramics-napkin-holder.jpg', alt: 'Teal ceramic napkin holder with a scalloped organic shape' },
+        { src: 'assets/ceramics-market-booth.jpg', alt: 'The Seconds Ceramics market booth display with mugs, bowls, and vases' }
+      ],
       hobbySlots: ['hobby photo', 'hobby photo', 'hobby photo', 'hobby photo']
     };
   }
