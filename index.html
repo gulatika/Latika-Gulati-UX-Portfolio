@@ -215,7 +215,7 @@
       <div>
         <h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.15;font-size:clamp(21px,2.6vw,26px);margin:40px 0 14px">{{ sec.h }}</h3>
         <sc-for list="{{ sec.ps }}" as="para" hint-placeholder-count="1"><p style="margin:0 0 16px;font-size:17px">{{ para }}</p></sc-for>
-        <sc-for list="{{ sec.list }}" as="item" hint-placeholder-count="0"><div style="display:flex;gap:12px;margin:0 0 10px;font-size:17px"><span style="width:8px;height:8px;border-radius:2px;background:#A09BE7;flex:none;margin-top:9px"></span><span>{{ item }}</span></div></sc-for>
+        <sc-for list="{{ sec.list }}" as="item" hint-placeholder-count="0"><div style="display:flex;gap:12px;margin:0 0 10px;font-size:17px"><span style="width:8px;height:8px;border-radius:2px;background:#A09BE7;flex:none;margin-top:9px"></span><span style="display:flex;flex-direction:column;gap:2px"><sc-if value="{{ item.lead }}" hint-placeholder-val="{{ false }}"><strong style="font-weight:600;color:#231F1A">{{ item.lead }}</strong></sc-if><span>{{ item.text }}</span></span></div></sc-for>
         <sc-for list="{{ sec.ps2 }}" as="para2" hint-placeholder-count="0"><p style="margin:16px 0;font-size:17px">{{ para2 }}</p></sc-for>
         <sc-if value="{{ sec.figImgNarrow }}" hint-placeholder-val="{{ false }}">
           <figure style="width:50%;min-width:240px;margin:24px auto 0">
@@ -224,7 +224,7 @@
           </figure>
         </sc-if>
         <sc-if value="{{ sec.figImgWide }}" hint-placeholder-val="{{ false }}">
-          <figure style="margin:24px 0 0">
+          <figure style="width:80%;margin:24px auto 0">
             <img src="{{ sec.figImg }}" alt="{{ sec.fig }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14)">
             <figcaption style="margin:10px 0 24px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a4038;opacity:.75">{{ sec.figCaption }}</figcaption>
           </figure>
@@ -426,10 +426,10 @@ class Component extends DCLogic {
         { h: 'Finding the drop-off point', ps: [
           'Through looking at funnel analytics given to me by my PM and dev team, we found the core failure point was that users didn\'t realize they had to leave the Capital One app. Since modern OTP had trained people to expect an autofill of the code. My hunch was that this specifically tripped up the users.'
         ] },
-        { h: 'Brainstorming solutions, testing with users', ps: ['To try and smooth out the drop off point, I designed three distinct flows which each explored a different intervention:'],
-          list: ['Adding an explanatory screen before the iOTP trigger', 'Introducing a modal to interrupt and redirect attention after the iOTP trigger', 'Revising copy to set expectations before the user even chooses iOTP as the authentication method'],
-          ps2: ['Each flow was tested with 10 users on UserTesting.com and benchmarked against the original iOTP flow as a control (40 users total). I ran 2 rounds of iteration, refining based on what the data showed and technical feasibility rather than what I assumed would be best.'],
-          fig: 'the flows explored, including variants cut before testing', figImg: 'assets/case-iotp-flow-variants.webp', figWide: true },
+        { h: 'Brainstorming solutions, testing with users', ps: ['I started with four hypotheses about why users were dropping off and designed a flow around each. Once I showed these to my product and tech partners, we narrowed it down to the three strongest to test with users.'],
+          list: ["Hypothesis: Users don't know they can't enter the code right away. Experiment: Copy changes only, telling users to reply to our text before looking for a code. This was the cheapest and easiest fix, so we wanted to see how far it could get us on its own.", "Hypothesis: Users don't know they have to open their messaging app. Experiment: An explanatory screen before the text is sent, with a button that opens their messages directly.", "Hypothesis: Users don't trust a text asking them to reply. Experiment: Reframing the setup as \"Get a text from Capital One\" so the reply step felt expected and legitimate."],
+          ps2: ['Each flow was tested with 10 users on UserTesting.com and benchmarked against the original iOTP flow as a control (40 users total).', "Round one showed that copy alone wasn't enough, and users didn't understand the purpose of the new explanatory screen, so they skimmed right past it. For round two, I combined the strongest pieces into a new approach (a modal at the exact moment of confusion, paired with revised copy). Throughout both rounds, I refined based on what the data showed and technical feasibility rather than what my team and I assumed would be best."],
+          fig: 'the flows explored, including variants cut before testing', figImg: 'assets/case-iotp-flow-variants.webp', figWide: true, figCaption: 'Details blurred for NDA' },
         { h: 'The validated approach', ps: ['The winning approach combined three changes:'],
           list: [
             'A modal at the critical moment: rather than a preparatory screen users could skim past, a modal interrupted the flow at the exact point where confusion was highest, forcing a moment of pause.',
@@ -608,7 +608,8 @@ class Component extends DCLogic {
     const c = this._cases[csIdx];
     const prev = (csIdx + this._cases.length - 1) % this._cases.length;
     const next = (csIdx + 1) % this._cases.length;
-    const norm = (s) => ({ h: s.h, ps: s.ps || [], list: s.list || [], ps2: s.ps2 || [], fig: s.fig || '', figImg: s.figImg || '', figCaption: s.figCaption || '', figImgNarrow: !!(s.figImg && !s.figWide), figImgWide: !!(s.figImg && s.figWide), figIsText: !!(s.fig && !s.figImg) });
+    const splitItem = (x) => { const m = x.match(/^(Hypothesis:[\s\S]*?)\s*(Experiment:[\s\S]*)$/); return m ? { lead: m[1].trim(), text: m[2] } : { lead: '', text: x }; };
+    const norm = (s) => ({ h: s.h, ps: s.ps || [], list: (s.list || []).map(splitItem), ps2: s.ps2 || [], fig: s.fig || '', figImg: s.figImg || '', figCaption: s.figCaption || '', figImgNarrow: !!(s.figImg && !s.figWide), figImgWide: !!(s.figImg && s.figWide), figIsText: !!(s.fig && !s.figImg) });
     const isMobile = this.state.isMobile;
     return {
       isHome, isCase, isAbout, isOtc,
