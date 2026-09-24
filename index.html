@@ -188,17 +188,15 @@
 <div style="max-width:920px;margin:0 auto;padding:0 clamp(24px,7vw,72px);animation:fadeup .55s ease both;position:relative">
   <div style="padding:64px 0 24px;max-width:760px;position:relative">
     <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:44px;right:6px;pointer-events:none;opacity:.85;animation:bob 5s ease-in-out infinite" width="22" height="22" viewBox="0 0 24 24" stroke="#A09BE7" aria-hidden="true"><use href="#sp-star"></use></svg><svg style="position:absolute;top:352px;left:-6px;pointer-events:none;opacity:.45;animation:drift 9s ease-in-out infinite" width="16" height="16" viewBox="0 0 24 24" stroke="#758E4F" aria-hidden="true"><use href="#sp-heart"></use></svg></sc-if>
-    <sc-if value="{{ showCaseHero }}" hint-placeholder-val="{{ false }}"><div aria-hidden="true" style="position:absolute;top:16px;bottom:70px;left:70%;right:min(calc(372px - 50vw), calc(-1 * clamp(24px,7vw,72px)));border-radius:16px 0 0 16px;overflow:hidden"><img src="{{ csHeroImg }}" alt="{{ csHeroImgAlt }}" style="width:100%;height:100%;object-fit:cover;display:block"></div></sc-if>
-    <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:8px;right:8px;pointer-events:none;opacity:.85;display:{{ squigDisplay }}" width="26" height="18" viewBox="0 0 30 20" stroke="#758E4F" aria-hidden="true"><use href="#sp-squig"></use></svg></sc-if>
-    <a href="#/" onClick="{{ goWork }}" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#862809;text-decoration:none;position:relative;background:#FBF7EF">← All work</a>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#862809;display:inline-flex;align-items:center;gap:9px;margin:20px 0 16px;width:100%;position:relative"><span style="display:inline-flex;align-items:center;gap:9px;background:#FBF7EF;padding:2px 8px 1px 0;border-radius:6px"><span style="width:7px;height:7px;background:#A09BE7;border-radius:2px;flex:none"></span>Case study</span></div>
-    <h1 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.1;letter-spacing:-.01em;font-size:clamp(30px,5vw,52px);margin:0 0 18px;text-wrap:balance;position:relative"><span style="background:#FBF7EF;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:2px 8px 1px 0;border-radius:6px">{{ csTitle }}</span></h1>
-    <p style="font-size:clamp(17px,2vw,21px);max-width:46ch;margin:0;position:relative"><span style="background:#FBF7EF;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:2px 8px 1px 0;border-radius:6px">{{ csSummary }}</span></p>
+    <a href="#/" onClick="{{ goWork }}" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#862809;text-decoration:none">← All work</a>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#862809;display:inline-flex;align-items:center;gap:9px;margin:20px 0 16px;width:100%"><span style="width:7px;height:7px;background:#A09BE7;border-radius:2px;flex:none"></span>Case study</div>
+    <h1 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.1;letter-spacing:-.01em;font-size:clamp(30px,5vw,52px);margin:0 0 18px;text-wrap:balance">{{ csTitle }}</h1>
+    <p style="font-size:clamp(17px,2vw,21px);max-width:46ch;margin:0">{{ csSummary }}</p>
     <div style="display: grid; grid-template-columns: repeat(2, minmax(0, max-content)); gap: 14px 28px; margin: 24px 0; padding: 18px 0; border-top: 1px solid rgba(35,31,26,.14); border-bottom: 1px solid rgba(35,31,26,.14); position: relative">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:13px"><span style="color:#862809;display:table;margin-bottom:3px;background:#FBF7EF;padding:2px 8px 1px 0;border-radius:6px">Role</span><span style="color:#231F1A;background:#FBF7EF;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:2px 8px 1px 0;border-radius:6px">{{ csRole }}</span></div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:13px"><span style="color:#862809;display:table;margin-bottom:3px;background:#FBF7EF;padding:2px 8px 1px 0;border-radius:6px">Team</span><span style="color:#231F1A;background:#FBF7EF;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:2px 8px 1px 0;border-radius:6px">{{ csTeam }}</span></div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:13px"><span style="color:#862809;display:table;margin-bottom:3px;background:#FBF7EF;padding:2px 8px 1px 0;border-radius:6px">Timeline</span><span style="color:#231F1A;background:#FBF7EF;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:2px 8px 1px 0;border-radius:6px">{{ csTimeline }}</span></div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:13px"><span style="color:#862809;display:table;margin-bottom:3px;background:#FBF7EF;padding:2px 8px 1px 0;border-radius:6px">Tools</span><span style="color:#231F1A;background:#FBF7EF;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:2px 8px 1px 0;border-radius:6px">{{ csTools }}</span></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px"><span style="color:#862809;display:block;margin-bottom:3px">Role</span><span style="color:#231F1A">{{ csRole }}</span></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px"><span style="color:#862809;display:block;margin-bottom:3px">Team</span><span style="color:#231F1A">{{ csTeam }}</span></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px"><span style="color:#862809;display:block;margin-bottom:3px">Timeline</span><span style="color:#231F1A">{{ csTimeline }}</span></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px"><span style="color:#862809;display:block;margin-bottom:3px">Tools</span><span style="color:#231F1A">{{ csTools }}</span></div>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <sc-if value="{{ csClient }}" hint-placeholder-val="{{ true }}"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#413B8F;background:rgba(160,155,231,.2);border:1px solid #A09BE7;padding:6px 11px;border-radius:20px">{{ csClient }}</span></sc-if>
@@ -405,7 +403,6 @@ class Component extends DCLogic {
   _cases = [
     {
       slug: 'iotp',
-      heroImg: 'assets/case-iotp.jpg', heroImgAlt: 'The iOTP interactive verification flow on a phone screen',
       title: 'Calibrating Friction: Redesigning iOTP Authentication at Capital One',
       summary: "Streamlined Capital One's Interactive OTP experience by balancing security requirements with measurable usability gains.",
       role: 'Solo UX/UI Designer', team: 'Me (designer), Product Owner, Developers', timeline: '6 weeks', tools: 'Figma, UserTesting.com',
@@ -629,8 +626,6 @@ class Component extends DCLogic {
       ],
       csTitle: c.title, csSummary: c.summary, csRole: c.role, csTeam: c.team, csTimeline: c.timeline, csTools: c.tools,
       csClient: c.client || '', csTags: c.tags, csHooks: c.hooks || this._defaultHooks,
-      csHeroImg: c.heroImg || '', csHeroImgAlt: c.heroImgAlt || '',
-      showCaseHero: !!(c.heroImg && !isMobile), squigDisplay: isMobile ? 'none' : 'block',
       csSections: c.sections.map(norm),
       csQuote: c.quote || '', csQuoteWho: c.quoteWho || '',
       prevHref: '#/case/' + this._cases[prev].slug, prevTitle: this._cases[prev].title,
