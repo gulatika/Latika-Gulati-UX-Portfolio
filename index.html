@@ -119,7 +119,7 @@
       </div>
     </article>
 
-    <article style="display:flex;flex-wrap:wrap-reverse;gap:40px;align-items:center;margin-bottom:64px;flex-direction:row-reverse">
+    <article style="display:flex;flex-wrap:wrap;gap:40px;align-items:center;margin-bottom:64px;flex-direction:row-reverse">
       <a href="#/case/identity-platform" aria-label="Read the Identity Platform case study" style="flex:1 1 320px;aspect-ratio:4/3;border-radius:14px;background:#F3EBDC;border:1px solid rgba(35,31,26,.14);overflow:hidden;position:relative;text-decoration:none;transition:transform .25s ease,border-color .25s ease" style-hover="transform:translateY(-4px);border-color:#862809"><img src="assets/case-identity-thumb.jpg" alt="Concept screen for the Identity Platform quick start" style="width:100%;height:100%;object-fit:cover;display:block"></a>
       <div style="flex:1 1 320px;min-width:0">
         <span style="display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#413B8F;background:rgba(160,155,231,.2);border:1px solid #A09BE7;padding:6px 11px;border-radius:20px;margin-bottom:14px">Capital One</span><h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.15;font-size:clamp(22px,2.6vw,28px);margin:0 0 14px">Designing for alignment with the Identity Platform</h3>
@@ -150,7 +150,7 @@
   <div style="background:#464039;color:#FBF7EF;border-radius:20px;padding:clamp(38px,5vw,56px) clamp(24px,5vw,44px);position:relative;overflow:hidden">
       <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:22px;right:26px;pointer-events:none;opacity:.85;animation:spin 14s linear infinite" width="26" height="26" viewBox="0 0 28 22" stroke="#A09BE7" aria-hidden="true"><use href="#sp-spiral"></use></svg><svg style="position:absolute;bottom:26px;left:18px;pointer-events:none;opacity:.45" width="17" height="17" viewBox="0 0 24 24" stroke="#A09BE7" aria-hidden="true"><use href="#sp-diamond"></use></svg></sc-if>
       <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#e9e0d2;display:inline-flex;align-items:center;gap:9px;margin-bottom:16px"><span style="width: 7px; height: 7px; background: rgb(160, 155, 231); border-radius: 2px; flex: 0 0 auto;"></span>my approach to design</div>
-      <h2 style="font-family: 'Newsreader',Georgia,serif; color: #FBF7EF; font-weight: 500; line-height: 1.1; font-size: clamp(26px,3.4vw,38px); max-width: 20ch; margin: 0; width: 532px; height: 84px">Beautiful screens that can't ship aren't good UX</h2>
+      <h2 style="font-family: 'Newsreader',Georgia,serif; color: #FBF7EF; font-weight: 500; line-height: 1.1; font-size: clamp(26px,3.4vw,38px); max-width: 20ch; margin: 0">Beautiful screens that can't ship aren't good UX</h2>
       <div style="max-width:54ch;margin:16px 0 0;color:#e9e0d2;opacity:.9"><p dir="ltr">It's so easy to design in a vacuum, but it's just as important to consider the system those designs live in. A user should be able to get through a full experience comfortably, and any individual screen is just one piece of that bigger puzzle.</p>
 <p dir="ltr"></p></div>
       <div style="max-width:54ch;margin:16px 0 0;color:#e9e0d2;opacity:.9"><p dir="ltr">My background in software development means I understand technical constraints and can collaborate with engineering teams in their language.&nbsp;After a long tenure in tech, I also know how to make user needs and business needs line up so products get shipped and are successful. Our job is to make/save companies money after all!</p>
@@ -218,14 +218,14 @@
         <sc-for list="{{ sec.list }}" as="item" hint-placeholder-count="0"><div style="display:flex;gap:12px;margin:0 0 10px;font-size:17px"><span style="width:8px;height:8px;border-radius:2px;background:#A09BE7;flex:none;margin-top:9px"></span><span style="display:flex;flex-direction:column;gap:2px"><sc-if value="{{ item.lead }}" hint-placeholder-val="{{ false }}"><strong style="font-weight:600;color:#231F1A">{{ item.lead }}</strong></sc-if><span>{{ item.text }}</span></span></div></sc-for>
         <sc-for list="{{ sec.ps2 }}" as="para2" hint-placeholder-count="0"><p style="margin:16px 0;font-size:17px">{{ para2 }}</p></sc-for>
         <sc-if value="{{ sec.figImgNarrow }}" hint-placeholder-val="{{ false }}">
-          <figure style="width:50%;min-width:240px;margin:24px auto 0">
-            <img src="{{ sec.figImg }}" alt="{{ sec.fig }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14)">
+          <figure style="width:100%;max-width:390px;margin:24px auto 0">
+            <a href="{{ sec.figImg }}" target="_blank" rel="noopener" style="display:block"><img src="{{ sec.figImg }}" alt="{{ sec.fig }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14)"></a>
             <figcaption style="margin:10px 0 24px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a4038;opacity:.75">{{ sec.figCaption }}</figcaption>
           </figure>
         </sc-if>
         <sc-if value="{{ sec.figImgWide }}" hint-placeholder-val="{{ false }}">
-          <figure style="width:80%;margin:24px auto 0">
-            <img src="{{ sec.figImg }}" alt="{{ sec.fig }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14)">
+          <figure style="width:100%;max-width:620px;margin:24px auto 0">
+            <a href="{{ sec.figImg }}" target="_blank" rel="noopener" style="display:block"><img src="{{ sec.figImg }}" alt="{{ sec.fig }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14)"></a>
             <figcaption style="margin:10px 0 24px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a4038;opacity:.75">{{ sec.figCaption }}</figcaption>
           </figure>
         </sc-if>
@@ -313,9 +313,6 @@
         <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#862809;display:inline-flex;align-items:center;gap:9px;margin-bottom:16px"><span style="width:7px;height:7px;background:#A09BE7;border-radius:2px;flex:none"></span>Currently excited about</div>
         <div style="font-family:'Newsreader',Georgia,serif;font-size:clamp(22px,3vw,30px);color:#231F1A"><span style="color:#862809">{{ hobby }}</span></div>
         <button onClick="{{ shuffleHobby }}" style="margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:12px;background:none;border:1px solid rgba(35,31,26,.2);color:#231F1A;padding:8px 13px;border-radius:8px;cursor:pointer;transition:border-color .15s,color .15s" style-hover="border-color:#862809;color:#862809">shuffle ↻</button>
-      </div>
-      <div style="flex:1 1 320px;display:grid;grid-template-columns:1fr 1fr;gap:14px">
-        <sc-for list="{{ hobbySlots }}" as="hslot" hint-placeholder-count="4"><div style="aspect-ratio:1;background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:12.5px;opacity:.8">{{ hslot }}</div></sc-for>
       </div>
     </div>
   </section>
@@ -553,7 +550,7 @@ class Component extends DCLogic {
     },
     {
       slug: 'seconds-ceramics',
-      title: 'Seconds Ceramics: Designing a Pop-Up Retail Experience',
+      title: 'Seconds Ceramics: Designing a Pop‑Up Retail Experience',
       summary: 'Co-founded and branded a handmade ceramics business, then ran our first market booth as a live retail research study.',
       role: 'Co-founder, Brand Designer, Experience Strategist', team: 'Me and my co-founder', timeline: 'First market weekend', tools: 'Figma, observational research, iterative display design',
       client: 'Seconds Ceramics', tags: ['Retail Experience', 'Behavioral Research', 'Branding'],
@@ -648,14 +645,16 @@ class Component extends DCLogic {
       aboutQuotes: [
         { q: 'Latika is a rare combination of both UX designer and software developer that makes her incredibly valuable in the tech world.', who: 'Beth Devine, UX Researcher, American Express' },
         { q: 'Latika is a strong thinker. She works extremely well with stakeholders and team and is a delight to work with. She is a very fast learner and a UX-er at heart.', who: 'Noelle Fair, design leader, managed Latika directly' },
-        { q: 'Latika brings an incredible combination of strategy and creativity. Her previous experience as a developer has set her up to excel as a designer.', who: 'Rachel Williams Belter, Digital Accessibility Product Design, American Express' }
+        { q: 'Latika brings an incredible combination of strategy and creativity. Her previous experience as a developer has set her up to excel as a designer.', who: 'Rachel Williams Belter, Digital Accessibility Product Design, American Express' },
+        { q: 'Latika is a collaborative team player who thrives in interdisciplinary environments. She could navigate a complex domain and challenging problems with creativity and a positive attitude.', who: 'Michelle Phanthongphay, Senior Product Designer, American Express' }
       ],
       ceramicSlots: [
         { src: 'assets/ceramics-autumn-bowl.jpg', alt: 'Black bowl with a carved mushroom and botanical sgraffito design' },
         { src: 'assets/ceramics-sheep-stripe.jpg', alt: 'Two stacked mugs, one with a hand-painted sheep, one striped in warm colors' },
         { src: 'assets/ceramics-bow-mug.jpg', alt: 'Cream ceramic mug with a sculpted white bow on the handle' },
         { src: 'assets/ceramics-vases.jpg', alt: 'Four small hand-painted ceramic vases holding tulips' },
-        { src: 'assets/ceramics-napkin-holder.jpg', alt: 'Teal ceramic napkin holder with a scalloped organic shape' }
+        { src: 'assets/ceramics-napkin-holder.jpg', alt: 'Teal ceramic napkin holder with a scalloped organic shape' },
+        { src: 'assets/ceramics-market-booth.jpg', alt: 'The Seconds Ceramics booth at our first market, with mugs on tiered wooden risers' }
       ],
       hobbySlots: ['hobby photo', 'hobby photo', 'hobby photo', 'hobby photo']
     };
