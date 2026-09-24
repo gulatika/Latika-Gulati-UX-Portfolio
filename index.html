@@ -186,7 +186,7 @@
 
 <sc-if value="{{ isCase }}" hint-placeholder-val="{{ false }}">
 <div style="max-width:920px;margin:0 auto;padding:0 clamp(24px,7vw,72px);animation:fadeup .55s ease both;position:relative">
-  <div style="padding:64px 0 24px;max-width:760px;position:relative">
+  <div style="padding:64px 0 24px;position:relative">
     <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:44px;right:6px;pointer-events:none;opacity:.85;animation:bob 5s ease-in-out infinite" width="22" height="22" viewBox="0 0 24 24" stroke="#A09BE7" aria-hidden="true"><use href="#sp-star"></use></svg><svg style="position:absolute;top:352px;left:-6px;pointer-events:none;opacity:.45;animation:drift 9s ease-in-out infinite" width="16" height="16" viewBox="0 0 24 24" stroke="#758E4F" aria-hidden="true"><use href="#sp-heart"></use></svg></sc-if>
     <a href="#/" onClick="{{ goWork }}" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#862809;text-decoration:none">← All work</a>
     <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#862809;display:inline-flex;align-items:center;gap:9px;margin:20px 0 16px;width:100%"><span style="width:7px;height:7px;background:#A09BE7;border-radius:2px;flex:none"></span>Case study</div>
@@ -203,14 +203,14 @@
       <sc-for list="{{ csTags }}" as="tag" hint-placeholder-count="3"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">{{ tag }}</span></sc-for>
     </div>
   </div>
-  <div style="background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:14px;padding:24px;margin:40px 0;max-width:760px;box-sizing:border-box;position:relative">
+  <div style="background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:14px;padding:24px;margin:40px 0;box-sizing:border-box;position:relative">
     <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:-12px;left:22px;pointer-events:none;opacity:.85" width="26" height="18" viewBox="0 0 30 20" stroke="#758E4F" aria-hidden="true"><use href="#sp-squig"></use></svg></sc-if>
     <h4 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;font-size:16px;margin:0 0 12px">Ask me about</h4>
     <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin:0;padding:0">
       <sc-for list="{{ csHooks }}" as="hook" hint-placeholder-count="3"><li style="padding-left:22px;position:relative;font-size:15px"><span style="position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:2px;background:#A09BE7"></span>{{ hook }}</li></sc-for>
     </ul>
   </div>
-  <div style="max-width:680px">
+  <div>
     <sc-for list="{{ csSections }}" as="sec" hint-placeholder-count="3">
       <div>
         <h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.15;font-size:clamp(21px,2.6vw,26px);margin:40px 0 14px">{{ sec.h }}</h3>
