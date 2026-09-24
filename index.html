@@ -415,16 +415,26 @@ class Component extends DCLogic {
       client: 'Capital One', tags: ['Authentication', 'Interaction Design', 'Research'],
       hooks: ['how I decided where the moment of friction should go', 'the tradeoff between security cost and completion rate', 'what I would test next if I were still on it'],
       sections: [
-        { h: 'The problem: iOTP is a secure flow but has a drop-off problem', ps: [
+        { h: 'The problem: a secure flow users kept abandoning', ps: [
           "Capital One customers are quietly being protected by a layered authentication system every time they log in. For more risky tasks like wiring money, users are asked to complete a secondary authentication step to prove it's really them.",
-          'One of the more secure methods in our toolkit is Interactive OTP (iOTP), a verification flow where instead of an auto-filled code, users are asked to leave the app, go to their messages, and actively confirm their identity. While more secure than standard OTP, it introduces more friction.',
-          "The main issue for the iOTP flow is that users kept dropping off. They would expect the OTP code to auto-populate like they're used to and abandon when it didn't. This lower completion rate meant that the largest Capital One lines of business didn't feel comfortable implementing it, and thereby exposing themselves to higher levels of risk."
-        ], fig: 'before state / where users dropped off', figImg: 'assets/case-iotp-sms-flow.webp' },
+          "SMS one time pins are Capital One's most used authenticator, which also makes them a favorite target for fraudsters. One of the most common attacks is vishing: a scammer calls pretending to be from Capital One and talks the user into reading back their code. A standard OTP can't protect against that, because the code on its own doesn't tell the user what it's unlocking.",
+          "Interactive OTP (iOTP) closes that gap by turning the code into a conversation. Instead of a string of numbers, users get a text that does three things:"
+        ],
+          list: [
+            "Context: it tells them exactly what was requested, like adding an external account",
+            "Confirmation: it asks them to reply yes or no, so they're approving or rejecting that specific action",
+            "Protection: if they reply no, it points them to the number on the back of their card and reminds them Capital One will never call asking for this info"
+          ],
+          ps2: [
+            "That's what makes iOTP more secure. It's also exactly what made it harder to finish, since users had to leave the app and actually engage instead of waiting for a code to autofill.",
+            "The main issue for the iOTP flow is that users kept dropping off. They would expect the OTP code to auto-populate like they're used to and abandon when it didn't. This lower completion rate meant that the largest Capital One lines of business didn't feel comfortable implementing it, which left them exposed to more risk."
+          ],
+          fig: 'how iOTP works / context, confirmation, protection', figImg: 'assets/case-iotp-sms-flow.webp', figWide: true },
         { h: 'Understanding the role of friction in authentication', ps: [
           "Before touching any designs, I dug into the research database to see what relevant information I could find. Luckily, researchers on my team were doing some investigation into how customers view friction during authentication. Through their findings, I learned that users expect a little bit of friction when accessing their money to feel safe. They want to feel that their bank takes protecting their money seriously, but they don't want to slow down unnecessarily either. This means that the goal wasn't to eliminate the iOTP friction completely, but instead to calibrate it."
         ] },
         { h: 'Finding the drop-off point', ps: [
-          'Through looking at funnel analytics given to me by my PM and dev team, we found the core failure point was that users didn\'t realize they had to leave the Capital One app. Since modern OTP had trained people to expect an autofill of the code. My hunch was that this specifically tripped up the users.'
+          'Through looking at funnel analytics given to me by my PM and dev team, we found the core failure point was that users didn\'t realize they had to leave the Capital One app. Modern OTP has trained people to expect the code to autofill, and my hunch was that this is what tripped users up.'
         ] },
         { h: 'Brainstorming solutions, testing with users', ps: ['I started with four hypotheses about why users were dropping off and designed a flow around each. Once I showed these to my product and tech partners, we narrowed it down to the three strongest to test with users.'],
           list: ["Hypothesis: Users don't know they can't enter the code right away. Experiment: Copy changes only, telling users to reply to our text before looking for a code. This was the cheapest and easiest fix, so we wanted to see how far it could get us on its own.", "Hypothesis: Users don't know they have to open their messaging app. Experiment: An explanatory screen before the text is sent, with a button that opens their messages directly.", "Hypothesis: Users don't trust a text asking them to reply. Experiment: Reframing the setup as \"Get a text from Capital One\" so the reply step felt expected and legitimate."],
@@ -435,15 +445,14 @@ class Component extends DCLogic {
             'A modal at the critical moment: rather than a preparatory screen users could skim past, a modal interrupted the flow at the exact point where confusion was highest, forcing a moment of pause.',
             'Revised copy: language that reframed the extra step as a sign of stronger security rather than an inconvenience. The goal was to make users feel like the friction was working for them, not against them. For users moving quickly through the flow, the copy provided a clear signal that iOTP was different from standard OTP.',
             'One text instead of two: a behind-the-scenes optimization that reduced the number of SMS sent per authentication attempt, lowering cost per session without any impact on the user experience. Better UX and lower cost is a win-win!'
-          ], fig: 'after state / the calibrated flow', figImg: 'assets/case-iotp.jpg' },
+          ], fig: 'after state / the modal at the moment of confusion', figImg: 'assets/case-iotp-after.jpg' },
         { h: 'Outcomes, handoff, and reflection', ps: [
           'The redesign projected a 20% improvement in user completion rates based on usability testing data, ahead of A/B test launch. SMS cost per session was also reduced, lowering operational overhead without any user-facing changes. These findings were then presented directly to the Capital One Card team, the largest line of business, with the expectation that smaller lines of business would follow suit once Card was on board.',
           'With usability testing complete, designs were handed off to development and queued for A/B testing to validate the projected improvements at scale.',
           "This project reinforced something I carry into every authentication or high-stakes flow: the goal is never zero friction. It's the right friction. Users need to feel that their bank is working to protect them and the design's job is to make that clear."
         ] }
       ],
-      quote: "Latika is a strong thinker. She thinks through the project problems and learns the 'why' behind the work. She works extremely well with stakeholders and team and is a delight to work with. Her optimism and positive attitude make collaborating with her fun. She is a very fast learner and a UX-er at heart.",
-      quoteWho: 'Noelle Fair, design leader who managed Latika directly'
+      quote: '', quoteWho: ''
     },
     {
       slug: 'identity-platform',
