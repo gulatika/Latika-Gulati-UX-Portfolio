@@ -216,7 +216,13 @@
         <sc-for list="{{ sec.ps }}" as="para" hint-placeholder-count="1"><p style="margin:0 0 16px">{{ para }}</p></sc-for>
         <sc-for list="{{ sec.list }}" as="item" hint-placeholder-count="0"><div style="display:flex;gap:12px;margin:0 0 10px"><span style="width:8px;height:8px;border-radius:2px;background:#A09BE7;flex:none;margin-top:9px"></span><span>{{ item }}</span></div></sc-for>
         <sc-for list="{{ sec.ps2 }}" as="para2" hint-placeholder-count="0"><p style="margin:16px 0">{{ para2 }}</p></sc-for>
-        <sc-if value="{{ sec.fig }}" hint-placeholder-val="{{ false }}"><div style="aspect-ratio:16/9;background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;opacity:.8;margin:24px 0">{{ sec.fig }}</div></sc-if>
+        <sc-if value="{{ sec.figImg }}" hint-placeholder-val="{{ false }}">
+          <figure style="margin:24px 0 0">
+            <img src="{{ sec.figImg }}" alt="{{ sec.fig }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14)">
+            <figcaption style="margin:10px 0 24px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a4038;opacity:.75">{{ sec.figCaption }}</figcaption>
+          </figure>
+        </sc-if>
+        <sc-if value="{{ sec.figIsText }}" hint-placeholder-val="{{ false }}"><div style="aspect-ratio:16/9;background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;opacity:.8;margin:24px 0">{{ sec.fig }}</div></sc-if>
       </div>
     </sc-for>
     <sc-if value="{{ csQuote }}" hint-placeholder-val="{{ false }}">
@@ -406,7 +412,7 @@ class Component extends DCLogic {
           "Capital One customers are quietly being protected by a layered authentication system every time they log in. For more risky tasks like wiring money, users are asked to complete a secondary authentication step to prove it's really them.",
           'One of the more secure methods in our toolkit was Interactive OTP (iOTP), a verification flow where instead of an auto-filled code, users were asked to leave the app, go to their messages, and actively confirm their identity. While more secure than standard OTP, it introduced more friction.',
           "The issue for the iOTP flow was that users kept dropping off. They wouldn't realize they were in a completely different flow, expected the code to auto-populate, and abandoned it when it didn't. Low completion by users meant low adoption by Capital One lines of business, meaning Capital One was left more exposed to risk."
-        ], fig: 'before state / where users dropped off' },
+        ], fig: 'before state / where users dropped off', figImg: 'assets/case-iotp-flow-screens.webp', figCaption: 'Screens are blurred for NDA reasons.' },
         { h: 'Understanding the role of friction in authentication', ps: [
           "Before touching any designs, I dug into the research database to see what relevant information I could find. I learned that users expect a little bit of friction when accessing their money to feel safe. They want to feel that their bank takes protecting their money seriously, but they don't want to slow down unnecessarily either. The goal for Identity services is never to eliminate friction but instead to calibrate it."
         ] },
@@ -594,7 +600,7 @@ class Component extends DCLogic {
     const c = this._cases[csIdx];
     const prev = (csIdx + this._cases.length - 1) % this._cases.length;
     const next = (csIdx + 1) % this._cases.length;
-    const norm = (s) => ({ h: s.h, ps: s.ps || [], list: s.list || [], ps2: s.ps2 || [], fig: s.fig || '' });
+    const norm = (s) => ({ h: s.h, ps: s.ps || [], list: s.list || [], ps2: s.ps2 || [], fig: s.fig || '', figImg: s.figImg || '', figCaption: s.figCaption || '', figIsText: !!(s.fig && !s.figImg) });
     const isMobile = this.state.isMobile;
     return {
       isHome, isCase, isAbout, isOtc,
