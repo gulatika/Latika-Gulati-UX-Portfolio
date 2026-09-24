@@ -11,9 +11,10 @@
 <title>Latika Gulati - UX designer who thinks like an engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;family=Figtree:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
-  body{margin:0;background:#FBF7EF;color:#4a4038;font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  *{font-variant-ligatures:no-common-ligatures}
+  body{margin:0;background:#FBF7EF;color:#4a4038;font-family:'Figtree',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:#862809}a:hover{color:#6f210a}
   :focus-visible{outline:2px solid #862809;outline-offset:3px;border-radius:4px}
   @keyframes spin{to{transform:rotate(360deg)}}
@@ -185,7 +186,7 @@
 
 <sc-if value="{{ isCase }}" hint-placeholder-val="{{ false }}">
 <div style="max-width:920px;margin:0 auto;padding:0 clamp(24px,7vw,72px);animation:fadeup .55s ease both;position:relative">
-  <div style="padding:64px 0 24px;max-width:760px;position:relative">
+  <div style="padding:64px 0 24px;position:relative">
     <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:44px;right:6px;pointer-events:none;opacity:.85;animation:bob 5s ease-in-out infinite" width="22" height="22" viewBox="0 0 24 24" stroke="#A09BE7" aria-hidden="true"><use href="#sp-star"></use></svg><svg style="position:absolute;top:352px;left:-6px;pointer-events:none;opacity:.45;animation:drift 9s ease-in-out infinite" width="16" height="16" viewBox="0 0 24 24" stroke="#758E4F" aria-hidden="true"><use href="#sp-heart"></use></svg></sc-if>
     <a href="#/" onClick="{{ goWork }}" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#862809;text-decoration:none">← All work</a>
     <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#862809;display:inline-flex;align-items:center;gap:9px;margin:20px 0 16px;width:100%"><span style="width:7px;height:7px;background:#A09BE7;border-radius:2px;flex:none"></span>Case study</div>
@@ -202,22 +203,22 @@
       <sc-for list="{{ csTags }}" as="tag" hint-placeholder-count="3"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">{{ tag }}</span></sc-for>
     </div>
   </div>
-  <div style="background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:14px;padding:24px;margin:40px 0;max-width:760px;box-sizing:border-box;position:relative">
-    <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:-12px;left:22px;pointer-events:none;opacity:.85" width="26" height="18" viewBox="0 0 30 20" stroke="#758E4F" aria-hidden="true"><use href="#sp-squig"></use></svg></sc-if>
+  <div style="background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:14px;padding:24px;margin:40px 0;box-sizing:border-box;position:relative">
+    <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:-12px;right:-28px;pointer-events:none;opacity:.85" width="26" height="18" viewBox="0 0 30 20" stroke="#758E4F" aria-hidden="true"><use href="#sp-squig"></use></svg></sc-if>
     <h4 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;font-size:16px;margin:0 0 12px">Ask me about</h4>
     <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin:0;padding:0">
       <sc-for list="{{ csHooks }}" as="hook" hint-placeholder-count="3"><li style="padding-left:22px;position:relative;font-size:15px"><span style="position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:2px;background:#A09BE7"></span>{{ hook }}</li></sc-for>
     </ul>
   </div>
-  <div style="max-width:680px">
+  <div>
     <sc-for list="{{ csSections }}" as="sec" hint-placeholder-count="3">
       <div>
         <h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.15;font-size:clamp(21px,2.6vw,26px);margin:40px 0 14px">{{ sec.h }}</h3>
-        <sc-for list="{{ sec.ps }}" as="para" hint-placeholder-count="1"><p style="margin:0 0 16px">{{ para }}</p></sc-for>
-        <sc-for list="{{ sec.list }}" as="item" hint-placeholder-count="0"><div style="display:flex;gap:12px;margin:0 0 10px"><span style="width:8px;height:8px;border-radius:2px;background:#A09BE7;flex:none;margin-top:9px"></span><span>{{ item }}</span></div></sc-for>
-        <sc-for list="{{ sec.ps2 }}" as="para2" hint-placeholder-count="0"><p style="margin:16px 0">{{ para2 }}</p></sc-for>
+        <sc-for list="{{ sec.ps }}" as="para" hint-placeholder-count="1"><p style="margin:0 0 16px;font-size:17px">{{ para }}</p></sc-for>
+        <sc-for list="{{ sec.list }}" as="item" hint-placeholder-count="0"><div style="display:flex;gap:12px;margin:0 0 10px;font-size:17px"><span style="width:8px;height:8px;border-radius:2px;background:#A09BE7;flex:none;margin-top:9px"></span><span>{{ item }}</span></div></sc-for>
+        <sc-for list="{{ sec.ps2 }}" as="para2" hint-placeholder-count="0"><p style="margin:16px 0;font-size:17px">{{ para2 }}</p></sc-for>
         <sc-if value="{{ sec.figImg }}" hint-placeholder-val="{{ false }}">
-          <figure style="margin:24px 0 0">
+          <figure style="width:50%;min-width:240px;margin:24px auto 0">
             <img src="{{ sec.figImg }}" alt="{{ sec.fig }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14)">
             <figcaption style="margin:10px 0 24px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a4038;opacity:.75">{{ sec.figCaption }}</figcaption>
           </figure>
@@ -408,26 +409,26 @@ class Component extends DCLogic {
       client: 'Capital One', tags: ['Authentication', 'Interaction Design', 'Research'],
       hooks: ['how I decided where the moment of friction should go', 'the tradeoff between security cost and completion rate', 'what I would test next if I were still on it'],
       sections: [
-        { h: 'The problem: a secure flow with a drop-off problem', ps: [
+        { h: 'The problem: iOTP is a secure flow but has a drop-off problem', ps: [
           "Capital One customers are quietly being protected by a layered authentication system every time they log in. For more risky tasks like wiring money, users are asked to complete a secondary authentication step to prove it's really them.",
-          'One of the more secure methods in our toolkit was Interactive OTP (iOTP), a verification flow where instead of an auto-filled code, users were asked to leave the app, go to their messages, and actively confirm their identity. While more secure than standard OTP, it introduced more friction.',
-          "The issue for the iOTP flow was that users kept dropping off. They wouldn't realize they were in a completely different flow, expected the code to auto-populate, and abandoned it when it didn't. Low completion by users meant low adoption by Capital One lines of business, meaning Capital One was left more exposed to risk."
+          'One of the more secure methods in our toolkit is Interactive OTP (iOTP), a verification flow where instead of an auto-filled code, users are asked to leave the app, go to their messages, and actively confirm their identity. While more secure than standard OTP, it introduces more friction.',
+          "The main issue for the iOTP flow is that users kept dropping off. They would expect the OTP code to auto-populate like they're used to and abandon when it didn't. This lower completion rate meant that the largest Capital One lines of business didn't feel comfortable implementing it, and thereby exposing themselves to higher levels of risk."
         ], fig: 'before state / where users dropped off', figImg: 'assets/case-iotp-sms-flow.webp' },
         { h: 'Understanding the role of friction in authentication', ps: [
-          "Before touching any designs, I dug into the research database to see what relevant information I could find. I learned that users expect a little bit of friction when accessing their money to feel safe. They want to feel that their bank takes protecting their money seriously, but they don't want to slow down unnecessarily either. The goal for Identity services is never to eliminate friction but instead to calibrate it."
+          "Before touching any designs, I dug into the research database to see what relevant information I could find. Luckily, researchers on my team were doing some investigation into how customers view friction during authentication. Through their findings, I learned that users expect a little bit of friction when accessing their money to feel safe. They want to feel that their bank takes protecting their money seriously, but they don't want to slow down unnecessarily either. This means that the goal wasn't to eliminate the iOTP friction completely, but instead to calibrate it."
         ] },
         { h: 'Finding the drop-off point', ps: [
-          'Through looking at funnel analytics, the core failure point was that users didn\'t realize they had to leave the Capital One app. Since modern OTP had trained people to expect an autofill of the code, I often heard "huh, that\'s odd" when the code didn\'t autofill and the completion rate reflected it.'
+          'Through looking at funnel analytics given to me by my PM and dev team, we found the core failure point was that users didn\'t realize they had to leave the Capital One app. Since modern OTP had trained people to expect an autofill of the code. My hunch was that this specifically tripped up the users.'
         ] },
-        { h: 'Brainstorming solutions, testing with users', ps: ['I designed three distinct flows, each exploring a different intervention:'],
-          list: ['Adding an explanatory screen before the action', 'Introducing a modal to interrupt and redirect attention at the critical moment', 'Revising copy to set expectations earlier in the flow'],
+        { h: 'Brainstorming solutions, testing with users', ps: ['To try and smooth out the drop off point, I designed three distinct flows which each explored a different intervention:'],
+          list: ['Adding an explanatory screen before the iOTP trigger', 'Introducing a modal to interrupt and redirect attention after the iOTP trigger', 'Revising copy to set expectations before the user even chooses iOTP as the authentication method'],
           ps2: ['Each flow was tested with 10 users on UserTesting.com and benchmarked against the original iOTP flow as a control (40 users total). I ran 2 rounds of iteration, refining based on what the data showed and technical feasibility rather than what I assumed would be best.'] },
         { h: 'The validated approach', ps: ['The winning approach combined three changes:'],
           list: [
             'A modal at the critical moment: rather than a preparatory screen users could skim past, a modal interrupted the flow at the exact point where confusion was highest, forcing a moment of pause.',
             'Revised copy: language that reframed the extra step as a sign of stronger security rather than an inconvenience. The goal was to make users feel like the friction was working for them, not against them. For users moving quickly through the flow, the copy provided a clear signal that iOTP was different from standard OTP.',
             'One text instead of two: a behind-the-scenes optimization that reduced the number of SMS sent per authentication attempt, lowering cost per session without any impact on the user experience. Better UX and lower cost is a win-win!'
-          ], fig: 'after state / the calibrated flow' },
+          ], fig: 'after state / the calibrated flow', figImg: 'assets/case-iotp.jpg' },
         { h: 'Outcomes, handoff, and reflection', ps: [
           'The redesign projected a 20% improvement in user completion rates based on usability testing data, ahead of A/B test launch. SMS cost per session was also reduced, lowering operational overhead without any user-facing changes. These findings were then presented directly to the Capital One Card team, the largest line of business, with the expectation that smaller lines of business would follow suit once Card was on board.',
           'With usability testing complete, designs were handed off to development and queued for A/B testing to validate the projected improvements at scale.',
