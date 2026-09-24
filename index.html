@@ -217,8 +217,14 @@
         <sc-for list="{{ sec.ps }}" as="para" hint-placeholder-count="1"><p style="margin:0 0 16px;font-size:17px">{{ para }}</p></sc-for>
         <sc-for list="{{ sec.list }}" as="item" hint-placeholder-count="0"><div style="display:flex;gap:12px;margin:0 0 10px;font-size:17px"><span style="width:8px;height:8px;border-radius:2px;background:#A09BE7;flex:none;margin-top:9px"></span><span>{{ item }}</span></div></sc-for>
         <sc-for list="{{ sec.ps2 }}" as="para2" hint-placeholder-count="0"><p style="margin:16px 0;font-size:17px">{{ para2 }}</p></sc-for>
-        <sc-if value="{{ sec.figImg }}" hint-placeholder-val="{{ false }}">
+        <sc-if value="{{ sec.figImgNarrow }}" hint-placeholder-val="{{ false }}">
           <figure style="width:50%;min-width:240px;margin:24px auto 0">
+            <img src="{{ sec.figImg }}" alt="{{ sec.fig }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14)">
+            <figcaption style="margin:10px 0 24px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a4038;opacity:.75">{{ sec.figCaption }}</figcaption>
+          </figure>
+        </sc-if>
+        <sc-if value="{{ sec.figImgWide }}" hint-placeholder-val="{{ false }}">
+          <figure style="margin:24px 0 0">
             <img src="{{ sec.figImg }}" alt="{{ sec.fig }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14)">
             <figcaption style="margin:10px 0 24px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a4038;opacity:.75">{{ sec.figCaption }}</figcaption>
           </figure>
@@ -422,7 +428,8 @@ class Component extends DCLogic {
         ] },
         { h: 'Brainstorming solutions, testing with users', ps: ['To try and smooth out the drop off point, I designed three distinct flows which each explored a different intervention:'],
           list: ['Adding an explanatory screen before the iOTP trigger', 'Introducing a modal to interrupt and redirect attention after the iOTP trigger', 'Revising copy to set expectations before the user even chooses iOTP as the authentication method'],
-          ps2: ['Each flow was tested with 10 users on UserTesting.com and benchmarked against the original iOTP flow as a control (40 users total). I ran 2 rounds of iteration, refining based on what the data showed and technical feasibility rather than what I assumed would be best.'] },
+          ps2: ['Each flow was tested with 10 users on UserTesting.com and benchmarked against the original iOTP flow as a control (40 users total). I ran 2 rounds of iteration, refining based on what the data showed and technical feasibility rather than what I assumed would be best.'],
+          fig: 'the flows explored, including variants cut before testing', figImg: 'assets/case-iotp-flow-variants.webp', figWide: true },
         { h: 'The validated approach', ps: ['The winning approach combined three changes:'],
           list: [
             'A modal at the critical moment: rather than a preparatory screen users could skim past, a modal interrupted the flow at the exact point where confusion was highest, forcing a moment of pause.',
@@ -601,7 +608,7 @@ class Component extends DCLogic {
     const c = this._cases[csIdx];
     const prev = (csIdx + this._cases.length - 1) % this._cases.length;
     const next = (csIdx + 1) % this._cases.length;
-    const norm = (s) => ({ h: s.h, ps: s.ps || [], list: s.list || [], ps2: s.ps2 || [], fig: s.fig || '', figImg: s.figImg || '', figCaption: s.figCaption || '', figIsText: !!(s.fig && !s.figImg) });
+    const norm = (s) => ({ h: s.h, ps: s.ps || [], list: s.list || [], ps2: s.ps2 || [], fig: s.fig || '', figImg: s.figImg || '', figCaption: s.figCaption || '', figImgNarrow: !!(s.figImg && !s.figWide), figImgWide: !!(s.figImg && s.figWide), figIsText: !!(s.fig && !s.figImg) });
     const isMobile = this.state.isMobile;
     return {
       isHome, isCase, isAbout, isOtc,
