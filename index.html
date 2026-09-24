@@ -204,7 +204,7 @@
     </div>
   </div>
   <div style="background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:14px;padding:24px;margin:40px 0;box-sizing:border-box;position:relative">
-    <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:-12px;left:22px;pointer-events:none;opacity:.85" width="26" height="18" viewBox="0 0 30 20" stroke="#758E4F" aria-hidden="true"><use href="#sp-squig"></use></svg></sc-if>
+    <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:-12px;right:-28px;pointer-events:none;opacity:.85" width="26" height="18" viewBox="0 0 30 20" stroke="#758E4F" aria-hidden="true"><use href="#sp-squig"></use></svg></sc-if>
     <h4 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;font-size:16px;margin:0 0 12px">Ask me about</h4>
     <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin:0;padding:0">
       <sc-for list="{{ csHooks }}" as="hook" hint-placeholder-count="3"><li style="padding-left:22px;position:relative;font-size:15px"><span style="position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:2px;background:#A09BE7"></span>{{ hook }}</li></sc-for>
@@ -219,7 +219,7 @@
         <sc-for list="{{ sec.ps2 }}" as="para2" hint-placeholder-count="0"><p style="margin:16px 0">{{ para2 }}</p></sc-for>
         <sc-if value="{{ sec.figImg }}" hint-placeholder-val="{{ false }}">
           <figure style="margin:24px 0 0">
-            <img src="{{ sec.figImg }}" alt="{{ sec.fig }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14)">
+            <img src="{{ sec.figImg }}" alt="{{ sec.fig }}" style="width:100%;max-width:380px;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14)">
             <figcaption style="margin:10px 0 24px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a4038;opacity:.75">{{ sec.figCaption }}</figcaption>
           </figure>
         </sc-if>
@@ -428,7 +428,7 @@ class Component extends DCLogic {
             'A modal at the critical moment: rather than a preparatory screen users could skim past, a modal interrupted the flow at the exact point where confusion was highest, forcing a moment of pause.',
             'Revised copy: language that reframed the extra step as a sign of stronger security rather than an inconvenience. The goal was to make users feel like the friction was working for them, not against them. For users moving quickly through the flow, the copy provided a clear signal that iOTP was different from standard OTP.',
             'One text instead of two: a behind-the-scenes optimization that reduced the number of SMS sent per authentication attempt, lowering cost per session without any impact on the user experience. Better UX and lower cost is a win-win!'
-          ], fig: 'after state / the calibrated flow' },
+          ], fig: 'after state / the calibrated flow', figImg: 'assets/case-iotp.jpg' },
         { h: 'Outcomes, handoff, and reflection', ps: [
           'The redesign projected a 20% improvement in user completion rates based on usability testing data, ahead of A/B test launch. SMS cost per session was also reduced, lowering operational overhead without any user-facing changes. These findings were then presented directly to the Capital One Card team, the largest line of business, with the expectation that smaller lines of business would follow suit once Card was on board.',
           'With usability testing complete, designs were handed off to development and queued for A/B testing to validate the projected improvements at scale.',
