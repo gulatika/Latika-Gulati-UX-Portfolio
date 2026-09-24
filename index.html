@@ -214,9 +214,9 @@
     <sc-for list="{{ csSections }}" as="sec" hint-placeholder-count="3">
       <div>
         <h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.15;font-size:clamp(21px,2.6vw,26px);margin:40px 0 14px">{{ sec.h }}</h3>
-        <sc-for list="{{ sec.ps }}" as="para" hint-placeholder-count="1"><p style="margin:0 0 16px">{{ para }}</p></sc-for>
-        <sc-for list="{{ sec.list }}" as="item" hint-placeholder-count="0"><div style="display:flex;gap:12px;margin:0 0 10px"><span style="width:8px;height:8px;border-radius:2px;background:#A09BE7;flex:none;margin-top:9px"></span><span>{{ item }}</span></div></sc-for>
-        <sc-for list="{{ sec.ps2 }}" as="para2" hint-placeholder-count="0"><p style="margin:16px 0">{{ para2 }}</p></sc-for>
+        <sc-for list="{{ sec.ps }}" as="para" hint-placeholder-count="1"><p style="margin:0 0 16px;font-size:17px">{{ para }}</p></sc-for>
+        <sc-for list="{{ sec.list }}" as="item" hint-placeholder-count="0"><div style="display:flex;gap:12px;margin:0 0 10px;font-size:17px"><span style="width:8px;height:8px;border-radius:2px;background:#A09BE7;flex:none;margin-top:9px"></span><span>{{ item }}</span></div></sc-for>
+        <sc-for list="{{ sec.ps2 }}" as="para2" hint-placeholder-count="0"><p style="margin:16px 0;font-size:17px">{{ para2 }}</p></sc-for>
         <sc-if value="{{ sec.figImg }}" hint-placeholder-val="{{ false }}">
           <figure style="width:50%;min-width:240px;margin:24px auto 0">
             <img src="{{ sec.figImg }}" alt="{{ sec.fig }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14)">
