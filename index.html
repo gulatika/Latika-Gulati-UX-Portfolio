@@ -556,6 +556,7 @@ class Component extends DCLogic {
     },
     {
       slug: 'developer-tool',
+      hidden: true,
       title: 'Designing for the Builder: Redesigning an Internal Developer Tool',
       summary: 'Consolidated and redesigned three internal tools into a single, unified platform, significantly streamlining and enhancing the developer experience.',
       role: 'Solo UX Designer', team: '7 people across design, product, and engineering', timeline: '6 weeks', tools: 'Figma, usability testing, WCAG accessibility standards',
@@ -668,8 +669,13 @@ class Component extends DCLogic {
       else { const n = parseInt(key, 10); csIdx = isNaN(n) ? 0 : Math.max(0, Math.min(this._cases.length - 1, n)); }
     }
     const c = this._cases[csIdx];
-    const prev = (csIdx + this._cases.length - 1) % this._cases.length;
-    const next = (csIdx + 1) % this._cases.length;
+    const stepCase = (from, dir) => {
+      let i = from;
+      do { i = (i + dir + this._cases.length) % this._cases.length; } while (this._cases[i].hidden && i !== from);
+      return i;
+    };
+    const prev = stepCase(csIdx, -1);
+    const next = stepCase(csIdx, 1);
     const splitItem = (x) => { const m = x.match(/^(Hypothesis:[\s\S]*?)\s*(Experiment:[\s\S]*)$/); return m ? { lead: m[1].trim(), text: m[2] } : { lead: '', text: x }; };
     const norm = (s) => ({
       h: s.h, ps: s.ps || [], list: (s.list || []).map(splitItem), ps2: s.ps2 || [], fig: s.fig || '', figImg: s.figImg || '', figImgMobile: s.figImgMobile || s.figImg || '', figCaption: s.figCaption || '', figImgNarrow: !!(s.figImg && !s.figWide), figImgWide: !!(s.figImg && s.figWide), figIsText: !!(s.fig && !s.figImg),
@@ -698,7 +704,6 @@ class Component extends DCLogic {
       stopClick: (e) => e.stopPropagation(),
       listRows: [
         { href: '#/case/travel-advisors', num: '03', name: 'Re-imagining the experience for travel advisors to curate a trip for their clients', desc: 'Designing the homepage, search, and design system for a luxury travel platform. Full case study coming soon.', client: 'Project Expedition', tags: ['AI Search Integration', 'Design System', 'UX/UI Design'] },
-        { href: '#/case/developer-tool', num: '04', name: 'Creating an internal tool for developers to easily categorize credit card input slots within merchant webpages', desc: 'Three internal tools consolidated into one unified platform.', client: 'Capital One', tags: ['Enterprise', 'Developer Tools', 'Accessibility'] },
         { href: '#/case/one-ap-help-center', num: '05', name: 'Creating the help center for the customers of the One AP (One Accounts Payable) product', desc: 'Streamlining accounts payable and receivable.', client: 'American Express', tags: ['Enterprise', 'Help Center', 'Usability Testing'] },
         { href: '#/case/seconds-ceramics', num: '06', name: 'Designing our first ceramics market booth as a live retail experiment', desc: 'Seconds Ceramics, a handmade pottery business I co-founded. Booth layout, placement, and pricing driven by observed behavior.', client: 'Seconds Ceramics', tags: ['Retail Experience', 'Behavioral Research', 'Branding'] },
         { href: '#/case/brand-identity', num: '07', name: 'Brand and identity work', desc: 'Tasked with creating brand identities. Here\'s a sample collection of my work', client: 'Lati Creative', tags: ['Stakeholder Management', 'Branding', 'Identity'] }
