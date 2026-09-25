@@ -204,13 +204,15 @@
       <sc-for list="{{ csTags }}" as="tag" hint-placeholder-count="3"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">{{ tag }}</span></sc-for>
     </div>
   </div>
-  <div style="background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:14px;padding:24px;margin:40px 0;box-sizing:border-box;position:relative">
-    <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:-12px;right:-28px;pointer-events:none;opacity:.85" width="26" height="18" viewBox="0 0 30 20" stroke="#758E4F" aria-hidden="true"><use href="#sp-squig"></use></svg></sc-if>
-    <h4 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;font-size:16px;margin:0 0 12px">Ask me about</h4>
-    <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin:0;padding:0">
-      <sc-for list="{{ csHooks }}" as="hook" hint-placeholder-count="3"><li style="padding-left:22px;position:relative;font-size:15px"><span style="position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:2px;background:#A09BE7"></span>{{ hook }}</li></sc-for>
-    </ul>
-  </div>
+  <sc-if value="{{ csHasHooks }}" hint-placeholder-val="{{ true }}">
+    <div style="background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:14px;padding:24px;margin:40px 0;box-sizing:border-box;position:relative">
+      <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:-12px;right:-28px;pointer-events:none;opacity:.85" width="26" height="18" viewBox="0 0 30 20" stroke="#758E4F" aria-hidden="true"><use href="#sp-squig"></use></svg></sc-if>
+      <h4 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;font-size:16px;margin:0 0 12px">Ask me about</h4>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin:0;padding:0">
+        <sc-for list="{{ csHooks }}" as="hook" hint-placeholder-count="3"><li style="padding-left:22px;position:relative;font-size:15px"><span style="position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:2px;background:#A09BE7"></span>{{ hook }}</li></sc-for>
+      </ul>
+    </div>
+  </sc-if>
   <div>
     <sc-for list="{{ csSections }}" as="sec" hint-placeholder-count="3">
       <div>
@@ -228,7 +230,7 @@
           </figure>
         </sc-if>
         <sc-if value="{{ sec.figImgWide }}" hint-placeholder-val="{{ false }}">
-          <figure style="width:100%;max-width:620px;margin:24px auto 0">
+          <figure style="width:100%;max-width:100%;margin:24px auto 0">
             <picture>
               <source media="(max-width:600px)" sc-camel-src-set="{{ sec.figImgMobile }}">
               <img src="{{ sec.figImg }}" alt="{{ sec.fig }}" sc-camel-tab-index="0" role="button" onClick="{{ sec.openFig }}" onKeyDown="{{ sec.openFigKey }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14);cursor:zoom-in">
@@ -372,11 +374,22 @@ class Component extends DCLogic {
     lightbox: null
   };
 
+  _redirectIfHidden(hash) {
+    if (hash.indexOf('#/case/') === 0) {
+      const slug = hash.split('/')[2] || '';
+      const cs = this._cases.find(x => x.slug === slug);
+      if (cs && cs.hidden) { location.hash = '#/'; return true; }
+    }
+    return false;
+  }
   componentDidMount() {
     this._onHash = () => {
-      this.setState({ hash: location.hash || '#/', menuOpen: false });
+      const h = location.hash || '#/';
+      if (this._redirectIfHidden(h)) return;
+      this.setState({ hash: h, menuOpen: false });
       window.scrollTo(0, 0);
     };
+    this._redirectIfHidden(this.state.hash);
     this._onResize = () => {
       const m = window.innerWidth <= 820;
       if (m !== this.state.isMobile) this.setState({ isMobile: m, menuOpen: false });
@@ -585,7 +598,7 @@ class Component extends DCLogic {
         ] },
         { h: 'Discovery through handoff', ps: [
           'I led the UX design of the One AP Help Center from discovery through handoff, running a two-session workshop with cross-functional stakeholders to align on requirements and generate design directions. From there I ran moderated concept testing with 6 users to validate two competing design patterns before committing to a final direction.'
-        ], fig: 'help center concepts' }
+        ] }
       ],
       quote: 'Latika is a rare combination of both UX designer and software developer that makes her incredibly valuable in the tech world. She is a fast learner and an amazing team player who genuinely cares about the quality of her work as well as the quality of her relationships with colleagues. I truly enjoyed partnering with her on multiple projects at American Express and would recommend her without hesitation as an asset to any design team.',
       quoteWho: 'Beth Devine, UX Researcher, worked with Latika at American Express'
@@ -704,12 +717,12 @@ class Component extends DCLogic {
       stopClick: (e) => e.stopPropagation(),
       listRows: [
         { href: '#/case/travel-advisors', num: '03', name: 'Re-imagining the experience for travel advisors to curate a trip for their clients', desc: 'Designing the homepage, search, and design system for a luxury travel platform. Full case study coming soon.', client: 'Project Expedition', tags: ['AI Search Integration', 'Design System', 'UX/UI Design'] },
-        { href: '#/case/one-ap-help-center', num: '05', name: 'Creating the help center for the customers of the One AP (One Accounts Payable) product', desc: 'Streamlining accounts payable and receivable.', client: 'American Express', tags: ['Enterprise', 'Help Center', 'Usability Testing'] },
-        { href: '#/case/seconds-ceramics', num: '06', name: 'Designing our first ceramics market booth as a live retail experiment', desc: 'Seconds Ceramics, a handmade pottery business I co-founded. Booth layout, placement, and pricing driven by observed behavior.', client: 'Seconds Ceramics', tags: ['Retail Experience', 'Behavioral Research', 'Branding'] },
-        { href: '#/case/brand-identity', num: '07', name: 'Brand and identity work', desc: 'Tasked with creating brand identities. Here\'s a sample collection of my work', client: 'Lati Creative', tags: ['Stakeholder Management', 'Branding', 'Identity'] }
+        { href: '#/case/one-ap-help-center', num: '04', name: 'Creating the help center for the customers of the One AP (One Accounts Payable) product', desc: 'Streamlining accounts payable and receivable.', client: 'American Express', tags: ['Enterprise', 'Help Center', 'Usability Testing'] },
+        { href: '#/case/seconds-ceramics', num: '05', name: 'Designing our first ceramics market booth as a live retail experiment', desc: 'Seconds Ceramics, a handmade pottery business I co-founded. Booth layout, placement, and pricing driven by observed behavior.', client: 'Seconds Ceramics', tags: ['Retail Experience', 'Behavioral Research', 'Branding'] },
+        { href: '#/case/brand-identity', num: '06', name: 'Brand and identity work', desc: "A collection of logos and marks I've made for clients and side projects through my studio, Lati Creative.", client: 'Lati Creative', tags: ['Stakeholder Management', 'Branding', 'Identity'] }
       ],
       csTitle: c.title, csSummary: c.summary, csRole: c.role, csTeam: c.team, csTimeline: c.timeline, csTools: c.tools,
-      csClient: c.client || '', csTags: c.tags, csHooks: c.hooks || this._defaultHooks,
+      csClient: c.client || '', csTags: c.tags, csHooks: c.hooks || [], csHasHooks: !!(c.hooks && c.hooks.length),
       csSections: c.sections.map(norm),
       csQuote: c.quote || '', csQuoteWho: c.quoteWho || '',
       prevHref: '#/case/' + this._cases[prev].slug, prevTitle: this._cases[prev].title,
