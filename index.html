@@ -532,15 +532,31 @@ class Component extends DCLogic {
     {
       slug: 'travel-advisors',
       title: 'Re-imagining the experience for travel advisors to curate a trip for their clients',
-      summary: "Full case study incoming. Project Expedition is a luxury travel platform I'm the designer on, and it's my most active client work right now.",
+      summary: "Designing the homepage, search, and design system for a luxury travel platform. Full case study coming soon.",
       role: 'Freelance UX Designer', team: 'Project Expedition', timeline: 'Ongoing', tools: 'Figma',
       client: 'Project Expedition', tags: ['AI Search Integration', 'Design System', 'UX/UI Design'],
       sections: [
-        { h: 'A look at the work', ps: ["Full case study incoming. In the meantime, here's a look at the work."], fig: 'project screenshots (coming soon)' }
+        { h: 'Overview',
+          ps: ["Project Expedition is a luxury travel platform that helps travel advisors plan and book trips for their clients. I'm the freelance designer on the project, and it's my most active client work right now. A full case study is coming once more of the work ships. So far, I've designed:"],
+          list: [
+            "The homepage, from the hero and search down through reviews, featured destinations, and the Elevate collection",
+            "The header and search system, landing on a search-first layout with secondary navigation",
+            "An AI-powered search dropdown with dynamic result ordering",
+            "Design system documentation covering color, typography, and navigation tokens",
+            "Mobile explorations and a Figma handoff for the search bar component"
+          ],
+          fig: 'homepage / hero and trip builder', figImg: 'assets/case-pe-homepage.webp', figWide: true },
+        { h: 'AI-powered search',
+          ps: ["Search is the front door to the whole catalog, so I designed it to handle anything someone might type. A natural language query like \"family friendly experiences near lisbon\" surfaces an AI results shortcut at the top, followed by matching tours and destinations."],
+          fig: 'search dropdown with AI results', figImg: 'assets/case-pe-ai-search.webp', figWide: true },
+        { h: 'Designing every search state',
+          ps: ["Before handoff, I designed the dropdown for every state it could land in: empty with recent and popular searches, a destination, a specific tour, a natural language query, a product, and no results at all. Each state came with written rules for engineering, including how results are ranked, how many show per section, and how the keyboard moves through them."],
+          fig: 'search dropdown states', figImg: 'assets/case-pe-search-states.webp', figWide: true }
       ]
     },
     {
       slug: 'developer-tool',
+      hidden: true,
       title: 'Designing for the Builder: Redesigning an Internal Developer Tool',
       summary: 'Consolidated and redesigned three internal tools into a single, unified platform, significantly streamlining and enhancing the developer experience.',
       role: 'Solo UX Designer', team: '7 people across design, product, and engineering', timeline: '6 weeks', tools: 'Figma, usability testing, WCAG accessibility standards',
@@ -653,8 +669,13 @@ class Component extends DCLogic {
       else { const n = parseInt(key, 10); csIdx = isNaN(n) ? 0 : Math.max(0, Math.min(this._cases.length - 1, n)); }
     }
     const c = this._cases[csIdx];
-    const prev = (csIdx + this._cases.length - 1) % this._cases.length;
-    const next = (csIdx + 1) % this._cases.length;
+    const stepCase = (from, dir) => {
+      let i = from;
+      do { i = (i + dir + this._cases.length) % this._cases.length; } while (this._cases[i].hidden && i !== from);
+      return i;
+    };
+    const prev = stepCase(csIdx, -1);
+    const next = stepCase(csIdx, 1);
     const splitItem = (x) => { const m = x.match(/^(Hypothesis:[\s\S]*?)\s*(Experiment:[\s\S]*)$/); return m ? { lead: m[1].trim(), text: m[2] } : { lead: '', text: x }; };
     const norm = (s) => ({
       h: s.h, ps: s.ps || [], list: (s.list || []).map(splitItem), ps2: s.ps2 || [], fig: s.fig || '', figImg: s.figImg || '', figImgMobile: s.figImgMobile || s.figImg || '', figCaption: s.figCaption || '', figImgNarrow: !!(s.figImg && !s.figWide), figImgWide: !!(s.figImg && s.figWide), figIsText: !!(s.fig && !s.figImg),
@@ -682,8 +703,7 @@ class Component extends DCLogic {
       closeLightbox: this._closeLightbox,
       stopClick: (e) => e.stopPropagation(),
       listRows: [
-        { href: '#/case/travel-advisors', num: '03', name: 'Re-imagining the experience for travel advisors to curate a trip for their clients', desc: 'Project Expedition, a luxury travel platform. Full case study incoming.', client: 'Project Expedition', tags: ['AI Search Integration', 'Design System', 'UX/UI Design'] },
-        { href: '#/case/developer-tool', num: '04', name: 'Creating an internal tool for developers to easily categorize credit card input slots within merchant webpages', desc: 'Three internal tools consolidated into one unified platform.', client: 'Capital One', tags: ['Enterprise', 'Developer Tools', 'Accessibility'] },
+        { href: '#/case/travel-advisors', num: '03', name: 'Re-imagining the experience for travel advisors to curate a trip for their clients', desc: 'Designing the homepage, search, and design system for a luxury travel platform. Full case study coming soon.', client: 'Project Expedition', tags: ['AI Search Integration', 'Design System', 'UX/UI Design'] },
         { href: '#/case/one-ap-help-center', num: '05', name: 'Creating the help center for the customers of the One AP (One Accounts Payable) product', desc: 'Streamlining accounts payable and receivable.', client: 'American Express', tags: ['Enterprise', 'Help Center', 'Usability Testing'] },
         { href: '#/case/seconds-ceramics', num: '06', name: 'Designing our first ceramics market booth as a live retail experiment', desc: 'Seconds Ceramics, a handmade pottery business I co-founded. Booth layout, placement, and pricing driven by observed behavior.', client: 'Seconds Ceramics', tags: ['Retail Experience', 'Behavioral Research', 'Branding'] },
         { href: '#/case/brand-identity', num: '07', name: 'Brand and identity work', desc: 'Tasked with creating brand identities. Here\'s a sample collection of my work', client: 'Lati Creative', tags: ['Stakeholder Management', 'Branding', 'Identity'] }
@@ -705,8 +725,7 @@ class Component extends DCLogic {
         { src: 'assets/ceramics-sheep-stripe.jpg', alt: 'Two stacked mugs, one with a hand-painted sheep, one striped in warm colors' },
         { src: 'assets/ceramics-bow-mug.jpg', alt: 'Cream ceramic mug with a sculpted white bow on the handle' },
         { src: 'assets/ceramics-vases.jpg', alt: 'Four small hand-painted ceramic vases holding tulips' },
-        { src: 'assets/ceramics-napkin-holder.jpg', alt: 'Teal ceramic napkin holder with a scalloped organic shape' },
-        { src: 'assets/ceramics-market-booth.jpg', alt: 'The Seconds Ceramics booth at our first market, with mugs on tiered wooden risers' }
+        { src: 'assets/ceramics-napkin-holder.jpg', alt: 'Teal ceramic napkin holder with a scalloped organic shape' }
       ],
       hobbySlots: ['hobby photo', 'hobby photo', 'hobby photo', 'hobby photo']
     };
