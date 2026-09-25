@@ -134,8 +134,7 @@
 
     <div>
       <sc-for list="{{ listRows }}" as="row" hint-placeholder-count="4">
-        <a href="{{ row.href }}" style="display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;padding:20px 4px;border-bottom:1px solid rgba(35,31,26,.14);text-decoration:none;transition:padding-left .2s ease" style-hover="padding-left:12px;background:rgba(160,155,231,.09)">
-          <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#862809;opacity:.9">{{ row.num }}</span>
+        <a href="{{ row.href }}" style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;padding:20px 4px;border-bottom:1px solid rgba(35,31,26,.14);text-decoration:none;transition:padding-left .2s ease" style-hover="padding-left:12px;background:rgba(160,155,231,.09)">
           <span style="min-width:0"><span style="font-family:'Newsreader',Georgia,serif;font-size:19px;color:#231F1A">{{ row.name }}</span><span style="display:block;font-size:14.5px;color:#4a4038;opacity:.9;margin-top:3px">{{ row.desc }}</span>
             <span style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
               <sc-if value="{{ row.client }}" hint-placeholder-val="{{ true }}"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#413B8F;background:rgba(160,155,231,.2);border:1px solid #A09BE7;padding:6px 11px;border-radius:20px">{{ row.client }}</span></sc-if>
@@ -578,11 +577,18 @@ class Component extends DCLogic {
     {
       slug: 'brand-identity',
       title: 'Brand and identity work',
-      summary: "A small collection of logos and marks I've made for clients and side projects, including my own studio, Lati Creative.",
+      summary: "A collection of logos and marks I've made for clients and side projects through my studio, Lati Creative.",
       role: 'Designer', team: 'Freelance', timeline: 'Ongoing', tools: 'Illustrator, Figma',
       client: 'Lati Creative', tags: ['Stakeholder Management', 'Branding'],
       sections: [
-        { h: 'The collection', ps: ['A small collection of logos and marks made for clients and side projects, including my own studio, Lati Creative.'], fig: 'logos and marks (coming soon)' }
+        { h: 'The collection',
+          ps: ["A selection of logos and marks I've made for small businesses, consultancies, and side projects, spanning veterinary medicine, wellness, finance, data, and craft.",
+            "I start every project by asking questions and listening. I want the logo and branding choices to reflect not only the look and feel of the company, but also signal to its customers what makes the brand different. While the logos here are the starting point, each expands into a full brand presence: websites, social media marks, business cards, lawn signs, and more."],
+          fig: 'logos and marks for clients and side projects', figImg: 'assets/case-brand-logos.webp', figWide: true,
+          figImgMobile: 'assets/case-brand-logos-mobile.webp' },
+        { h: 'Spotlight: Seconds Ceramics',
+          ps: ["For Seconds, the ceramics studio I co-run, I built a full system: a primary badge, a horizontal lockup, a one-color line mark for stamps, and signage for our market booth. You can see it in action in the Seconds Ceramics case study."],
+          fig: 'brand system / logo, line mark, sticker, and signage', figImg: 'assets/case-seconds-brand.webp', figWide: true }
       ]
     },
     {
