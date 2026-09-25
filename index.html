@@ -22,6 +22,8 @@
   @keyframes drift{0%,100%{transform:translate(0,0) rotate(0)}33%{transform:translate(5px,-6px) rotate(9deg)}66%{transform:translate(-4px,4px) rotate(-7deg)}}
   @keyframes fadeup{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  .fig-hint{display:none}
+  @media(max-width:600px){.fig-hint{display:block}}
 </style>
 </helmet>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -219,13 +221,19 @@
         <sc-for list="{{ sec.ps2 }}" as="para2" hint-placeholder-count="0"><p style="margin:16px 0;font-size:17px">{{ para2 }}</p></sc-for>
         <sc-if value="{{ sec.figImgNarrow }}" hint-placeholder-val="{{ false }}">
           <figure style="width:100%;max-width:390px;margin:24px auto 0">
-            <a href="{{ sec.figImg }}" target="_blank" rel="noopener" style="display:block"><img src="{{ sec.figImg }}" alt="{{ sec.fig }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14)"></a>
+            <picture>
+              <source media="(max-width:600px)" sc-camel-src-set="{{ sec.figImgMobile }}">
+              <img src="{{ sec.figImg }}" alt="{{ sec.fig }}" sc-camel-tab-index="0" role="button" onClick="{{ sec.openFig }}" onKeyDown="{{ sec.openFigKey }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14);cursor:zoom-in">
+            </picture>
             <figcaption style="margin:10px 0 24px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a4038;opacity:.75">{{ sec.figCaption }}</figcaption>
           </figure>
         </sc-if>
         <sc-if value="{{ sec.figImgWide }}" hint-placeholder-val="{{ false }}">
           <figure style="width:100%;max-width:620px;margin:24px auto 0">
-            <a href="{{ sec.figImg }}" target="_blank" rel="noopener" style="display:block"><img src="{{ sec.figImg }}" alt="{{ sec.fig }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14)"></a>
+            <picture>
+              <source media="(max-width:600px)" sc-camel-src-set="{{ sec.figImgMobile }}">
+              <img src="{{ sec.figImg }}" alt="{{ sec.fig }}" sc-camel-tab-index="0" role="button" onClick="{{ sec.openFig }}" onKeyDown="{{ sec.openFigKey }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14);cursor:zoom-in">
+            </picture>
             <figcaption style="margin:10px 0 24px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a4038;opacity:.75">{{ sec.figCaption }}</figcaption>
           </figure>
         </sc-if>
@@ -342,6 +350,18 @@
     </div>
   </div>
 </footer>
+
+<sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeLightbox }}" style="position:fixed;inset:0;z-index:100;background:rgba(35,31,26,.92);display:flex;align-items:center;justify-content:center;padding:24px">
+    <button onClick="{{ closeLightbox }}" aria-label="Close image" style="position:absolute;top:16px;right:16px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:none;border:1px solid rgba(251,247,239,.4);color:#FBF7EF;border-radius:8px;cursor:pointer;padding:0;z-index:1">
+      <svg width="18" height="18" viewBox="-1 -1 20 20" fill="none" aria-hidden="true"><line x1="1" y1="1" x2="17" y2="17" stroke="#FBF7EF" stroke-width="2" stroke-linecap="round"></line><line x1="1" y1="17" x2="17" y2="1" stroke="#FBF7EF" stroke-width="2" stroke-linecap="round"></line></svg>
+    </button>
+    <div onClick="{{ stopClick }}" style="display:flex;flex-direction:column;align-items:center">
+      <img src="{{ lightboxSrc }}" alt="{{ lightboxAlt }}" style="max-width:100vw;max-height:90vh;object-fit:contain;touch-action:pinch-zoom;display:block">
+      <div class="fig-hint" style="margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#FBF7EF;opacity:.7">pinch to zoom or turn your phone sideways</div>
+    </div>
+  </div>
+</sc-if>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showSparkles&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Personality&quot;},&quot;autoShuffleHobby&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Personality&quot;}}">
 class Component extends DCLogic {
@@ -349,7 +369,8 @@ class Component extends DCLogic {
     hash: (typeof location !== 'undefined' && location.hash) || '#/',
     menuOpen: false,
     isMobile: typeof window !== 'undefined' && window.innerWidth <= 820,
-    hobby: 'junk journaling'
+    hobby: 'junk journaling',
+    lightbox: null
   };
 
   componentDidMount() {
@@ -366,10 +387,15 @@ class Component extends DCLogic {
     if (this.props.autoShuffleHobby) {
       this._timer = setInterval(() => this._shuffle(), 20000);
     }
+    this._onKeyDown = (e) => {
+      if (e.key === 'Escape' && this.state.lightbox) this._closeLightbox();
+    };
+    window.addEventListener('keydown', this._onKeyDown);
   }
   componentWillUnmount() {
     window.removeEventListener('hashchange', this._onHash);
     window.removeEventListener('resize', this._onResize);
+    window.removeEventListener('keydown', this._onKeyDown);
     if (this._timer) clearInterval(this._timer);
   }
 
@@ -378,6 +404,17 @@ class Component extends DCLogic {
     let x;
     do { x = this._hobbies[Math.floor(Math.random() * this._hobbies.length)]; } while (x === this.state.hobby);
     this.setState({ hobby: x });
+  };
+
+  _openLightbox = (src, alt, e) => {
+    this._lightboxReturnFocus = e && e.currentTarget ? e.currentTarget : null;
+    document.body.style.overflow = 'hidden';
+    this.setState({ lightbox: { src, alt } });
+  };
+  _closeLightbox = () => {
+    document.body.style.overflow = '';
+    this.setState({ lightbox: null });
+    if (this._lightboxReturnFocus) { this._lightboxReturnFocus.focus(); this._lightboxReturnFocus = null; }
   };
 
   _scrollToEl(id) {
@@ -463,7 +500,7 @@ class Component extends DCLogic {
           "Capital One's Identity services are owned by a single team, which means when a line of business needed to integrate login, authentication, or verification into a new product, they had to come to the Identity team directly. A small intake team served as the front door for every request, manually configuring solutions based on each team's risk tolerance, throughput needs, and product complexity, then coordinating across several Identity teams to deliver them. That relay of people and handoffs created a bottleneck that couldn't scale.",
           'By creating a self-service Identity Platform, we could let teams access Identity-related services independently. This means a product owner can come in, describe their needs, and receive a recommended authentication configuration. A developer can view available APIs, review setup parameters, and integrate directly.',
           "This project sits at the center of a company-wide strategic shift toward platform-based architecture led by the CEO, meaning it was high visibility and even presented at the CEO's annual town hall."
-        ], fig: 'before and after / from a relay of teams to self-service', figImg: 'assets/case-identity-overview.webp', figWide: true },
+        ], fig: 'before and after / from a relay of teams to self-service', figImg: 'assets/case-identity-overview.webp', figImgMobile: 'assets/case-identity-overview-mobile.webp', figWide: true },
         { h: 'Getting a baseline of the current process', ps: [
           'Before any UI work could begin, I had to understand the current process, its strengths, and its limitations. One of the ways to do this was by shadowing intake calls to observe what questions external teams asked and what information the Identity team needed to configure the correct solution.',
           'The first step was to create a proof-of-concept form to gather all the information a human collected during those intake calls. If this could work without any human touch, it meant a platform was indeed a feasible solution. I found that while the form did get us most of the way there, it still had its limitations. For example, it was long enough to be fatiguing given the volume of questions that had to be answered. Additionally, not everyone had enough knowledge of Identity services to answer every question accurately.'
@@ -613,7 +650,11 @@ class Component extends DCLogic {
     const prev = (csIdx + this._cases.length - 1) % this._cases.length;
     const next = (csIdx + 1) % this._cases.length;
     const splitItem = (x) => { const m = x.match(/^(Hypothesis:[\s\S]*?)\s*(Experiment:[\s\S]*)$/); return m ? { lead: m[1].trim(), text: m[2] } : { lead: '', text: x }; };
-    const norm = (s) => ({ h: s.h, ps: s.ps || [], list: (s.list || []).map(splitItem), ps2: s.ps2 || [], fig: s.fig || '', figImg: s.figImg || '', figCaption: s.figCaption || '', figImgNarrow: !!(s.figImg && !s.figWide), figImgWide: !!(s.figImg && s.figWide), figIsText: !!(s.fig && !s.figImg) });
+    const norm = (s) => ({
+      h: s.h, ps: s.ps || [], list: (s.list || []).map(splitItem), ps2: s.ps2 || [], fig: s.fig || '', figImg: s.figImg || '', figImgMobile: s.figImgMobile || s.figImg || '', figCaption: s.figCaption || '', figImgNarrow: !!(s.figImg && !s.figWide), figImgWide: !!(s.figImg && s.figWide), figIsText: !!(s.fig && !s.figImg),
+      openFig: (e) => this._openLightbox(s.figImg, s.fig, e),
+      openFigKey: (e) => { if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); this._openLightbox(s.figImg, s.fig, e); } }
+    });
     const isMobile = this.state.isMobile;
     return {
       isHome, isCase, isAbout, isOtc,
@@ -629,6 +670,11 @@ class Component extends DCLogic {
       showSparkles: this.props.showSparkles ?? true,
       hobby: this.state.hobby,
       shuffleHobby: this._shuffle,
+      lightboxOpen: !!this.state.lightbox,
+      lightboxSrc: this.state.lightbox ? this.state.lightbox.src : '',
+      lightboxAlt: this.state.lightbox ? this.state.lightbox.alt : '',
+      closeLightbox: this._closeLightbox,
+      stopClick: (e) => e.stopPropagation(),
       listRows: [
         { href: '#/case/travel-advisors', num: '03', name: 'Re-imagining the experience for travel advisors to curate a trip for their clients', desc: 'Project Expedition, a luxury travel platform. Full case study incoming.', client: 'Project Expedition', tags: ['AI Search Integration', 'Design System', 'UX/UI Design'] },
         { href: '#/case/developer-tool', num: '04', name: 'Creating an internal tool for developers to easily categorize credit card input slots within merchant webpages', desc: 'Three internal tools consolidated into one unified platform.', client: 'Capital One', tags: ['Enterprise', 'Developer Tools', 'Accessibility'] },
