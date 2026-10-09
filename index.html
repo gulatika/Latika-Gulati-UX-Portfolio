@@ -9,6 +9,7 @@
 <x-dc>
 <helmet>
 <title>Latika Gulati - UX designer who thinks like an engineer</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;family=Figtree:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
@@ -94,8 +95,8 @@
           <a href="#/" onClick="{{ goWork }}" style="background:#862809;color:#FFFAF0;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:13px;letter-spacing:.02em;padding:12px 20px;border-radius:9px;text-decoration:none;display:inline-block;transition:background .15s,transform .15s" style-hover="background:#6f210a;transform:translateY(-1px)">See the work</a>
           <a href="#/about" style="border:1px solid rgba(35,31,26,.2);color:#231F1A;font-family:'JetBrains Mono',monospace;font-size:13px;padding:12px 20px;border-radius:9px;text-decoration:none;display:inline-block;transition:border-color .15s,color .15s,transform .15s" style-hover="border-color:#862809;color:#862809;transform:translateY(-1px)">More about me</a>
         </div>
-      </div><div style="flex:0 1 380px;margin:0 auto;background:#E7EDDC;border:1px solid rgba(35,31,26,.14);border-radius:16px;padding:18px;position:relative">
-        <img src="assets/portrait.png" alt="Hand-drawn line portrait of Latika smiling" style="width:100%;display:block;mix-blend-mode:multiply;border-radius:10px">
+      </div><div style="flex:0 1 380px;margin:0 auto;border:1px solid rgba(35,31,26,.14);border-radius:16px;padding:18px;position:relative">
+        <img src="assets/portrait.png" alt="Hand-drawn line portrait of Latika smiling" style="width:100%;display:block;border-radius:10px">
         <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}">
           <svg style="position:absolute;top:-14px;right:-10px;pointer-events:none;opacity:.85;animation:bob 5s ease-in-out infinite" width="34" height="34" viewBox="0 0 24 24" stroke="#A09BE7" aria-hidden="true"><use href="#sp-star"></use></svg>
         </sc-if>
@@ -258,8 +259,8 @@
 <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
 <div style="max-width:920px;margin:0 auto;padding:0 clamp(24px,7vw,72px);animation:fadeup .55s ease both">
   <div style="display:flex;flex-wrap:wrap;gap:40px;align-items:center;padding:64px 0 24px">
-    <div style="flex:0 1 360px;margin:0 auto;background:#E7EDDC;border:1px solid rgba(35,31,26,.14);border-radius:16px;padding:16px;position:relative">
-      <img src="assets/portrait.png" alt="Hand-drawn line portrait of Latika smiling" style="width:100%;display:block;mix-blend-mode:multiply;border-radius:10px">
+    <div style="flex:0 1 360px;margin:0 auto;border:1px solid rgba(35,31,26,.14);border-radius:16px;padding:16px;position:relative">
+      <img src="assets/portrait.png" alt="Hand-drawn line portrait of Latika smiling" style="width:100%;display:block;border-radius:10px">
       <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:-14px;right:-12px;pointer-events:none;opacity:.85;animation:bob 5s ease-in-out infinite" width="30" height="30" viewBox="0 0 24 24" stroke="#A09BE7" aria-hidden="true"><use href="#sp-star"></use></svg><svg style="position:absolute;bottom:-12px;left:-10px;pointer-events:none;opacity:.4" width="26" height="18" viewBox="0 0 30 20" stroke="#758E4F" aria-hidden="true"><use href="#sp-squig"></use></svg></sc-if>
     </div>
     <div style="flex:1 1 420px;min-width:0">
