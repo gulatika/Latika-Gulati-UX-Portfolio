@@ -117,7 +117,7 @@
         <span style="display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#413B8F;background:rgba(160,155,231,.2);border:1px solid #A09BE7;padding:6px 11px;border-radius:20px;margin-bottom:14px">Capital One</span><h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.15;font-size:clamp(22px,2.6vw,28px);margin:0 0 14px">Calibrating friction on Capital One's iOTP</h3>
         <p style="margin:0;font-size:15px">Streamlined Capital One's iOTP (interactive one time pin) experience, balancing security requirements with measurable usability gains.</p>
         <div style="display:flex;flex-wrap:wrap;gap:8px 18px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:13px;opacity:.9"><span><b style="color:#231F1A;font-weight:500">Role</b> UX/UI</span><span><b style="color:#231F1A;font-weight:500">Timeline</b> 6 weeks</span><span><b style="color:#231F1A;font-weight:500">Tools</b> Figma, UserTesting.com</span></div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">Authentication</span><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">Interaction Design</span><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">Research</span></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px"><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">Authentication</span><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">Mobile Design</span><span style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#5F7540;border:1px solid #758E4F;padding:6px 11px;border-radius:20px">Research</span></div>
         <a href="#/case/iotp" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#862809;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s" style-hover="border-bottom-color:#862809">Read the case study →</a>
       </div>
     </article>
@@ -191,8 +191,7 @@
   <div style="padding:64px 0 24px;position:relative">
     <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:44px;right:6px;pointer-events:none;opacity:.85;animation:bob 5s ease-in-out infinite" width="22" height="22" viewBox="0 0 24 24" stroke="#A09BE7" aria-hidden="true"><use href="#sp-star"></use></svg><svg style="position:absolute;top:352px;left:-6px;pointer-events:none;opacity:.45;animation:drift 9s ease-in-out infinite" width="16" height="16" viewBox="0 0 24 24" stroke="#758E4F" aria-hidden="true"><use href="#sp-heart"></use></svg></sc-if>
     <a href="#/" onClick="{{ goWork }}" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#862809;text-decoration:none">← All work</a>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#862809;display:inline-flex;align-items:center;gap:9px;margin:20px 0 16px;width:100%"><span style="width:7px;height:7px;background:#A09BE7;border-radius:2px;flex:none"></span>Case study</div>
-    <h1 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.1;letter-spacing:-.01em;font-size:clamp(30px,5vw,52px);margin:0 0 18px;text-wrap:balance">{{ csTitle }}</h1>
+    <h1 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.1;letter-spacing:-.01em;font-size:clamp(30px,5vw,52px);margin:20px 0 18px;text-wrap:balance">{{ csTitle }}</h1>
     <p style="font-size:clamp(17px,2vw,21px);max-width:46ch;margin:0">{{ csSummary }}</p>
     <div style="display: grid; grid-template-columns: repeat(2, minmax(0, max-content)); gap: 14px 28px; margin: 24px 0; padding: 18px 0; border-top: 1px solid rgba(35,31,26,.14); border-bottom: 1px solid rgba(35,31,26,.14); position: relative">
       <div style="font-family:'JetBrains Mono',monospace;font-size:13px"><span style="color:#862809;display:block;margin-bottom:3px">Role</span><span style="color:#231F1A">{{ csRole }}</span></div>
@@ -208,7 +207,7 @@
   <sc-if value="{{ csHasHooks }}" hint-placeholder-val="{{ true }}">
     <div style="background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:14px;padding:24px;margin:40px 0;box-sizing:border-box;position:relative">
       <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:-12px;right:-28px;pointer-events:none;opacity:.85" width="26" height="18" viewBox="0 0 30 20" stroke="#758E4F" aria-hidden="true"><use href="#sp-squig"></use></svg></sc-if>
-      <h4 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;font-size:16px;margin:0 0 12px">Ask me about</h4>
+      <h4 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;font-size:16px;margin:0 0 12px">Ask me about...</h4>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin:0;padding:0">
         <sc-for list="{{ csHooks }}" as="hook" hint-placeholder-count="3"><li style="padding-left:22px;position:relative;font-size:15px"><span style="position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:2px;background:#A09BE7"></span>{{ hook }}</li></sc-for>
       </ul>
@@ -219,7 +218,7 @@
       <div>
         <h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.15;font-size:clamp(21px,2.6vw,26px);margin:40px 0 14px">{{ sec.h }}</h3>
         <sc-for list="{{ sec.ps }}" as="para" hint-placeholder-count="1"><p style="margin:0 0 16px;font-size:17px">{{ para }}</p></sc-for>
-        <sc-for list="{{ sec.list }}" as="item" hint-placeholder-count="0"><div style="display:flex;gap:12px;margin:0 0 10px;font-size:17px"><span style="width:8px;height:8px;border-radius:2px;background:#A09BE7;flex:none;margin-top:9px"></span><span style="display:flex;flex-direction:column;gap:2px"><sc-if value="{{ item.lead }}" hint-placeholder-val="{{ false }}"><strong style="font-weight:600;color:#231F1A">{{ item.lead }}</strong></sc-if><span>{{ item.text }}</span></span></div></sc-for>
+        <sc-for list="{{ sec.list }}" as="item" hint-placeholder-count="0"><div style="display:flex;gap:12px;margin:0 0 10px;font-size:17px"><span style="width:8px;height:8px;border-radius:2px;background:#A09BE7;flex:none;margin-top:9px"></span><span style="display:flex;flex-direction:column;gap:2px"><sc-if value="{{ item.lead }}" hint-placeholder-val="{{ false }}"><strong style="font-weight:600;color:#231F1A">{{ item.lead }}</strong></sc-if><span><sc-if value="{{ item.inl }}" hint-placeholder-val="{{ false }}"><strong style="font-weight:600;color:#231F1A">{{ item.inl }} </strong></sc-if>{{ item.text }}</span></span></div></sc-for>
         <sc-for list="{{ sec.ps2 }}" as="para2" hint-placeholder-count="0"><p style="margin:16px 0;font-size:17px">{{ para2 }}</p></sc-for>
         <sc-if value="{{ sec.figImgNarrow }}" hint-placeholder-val="{{ false }}">
           <figure style="width:100%;max-width:390px;margin:24px auto 0">
@@ -232,6 +231,15 @@
         </sc-if>
         <sc-if value="{{ sec.figImgWide }}" hint-placeholder-val="{{ false }}">
           <figure style="width:100%;max-width:100%;margin:24px auto 0">
+            <picture>
+              <source media="(max-width:600px)" sc-camel-src-set="{{ sec.figImgMobile }}">
+              <img src="{{ sec.figImg }}" alt="{{ sec.fig }}" sc-camel-tab-index="0" role="button" onClick="{{ sec.openFig }}" onKeyDown="{{ sec.openFigKey }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14);cursor:zoom-in">
+            </picture>
+            <figcaption style="margin:10px 0 24px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#4a4038;opacity:.75">{{ sec.figCaption }}</figcaption>
+          </figure>
+        </sc-if>
+        <sc-if value="{{ sec.figImgHalf }}" hint-placeholder-val="{{ false }}">
+          <figure style="width:100%;max-width:min(100%,max(50%,360px));margin:24px auto 0">
             <picture>
               <source media="(max-width:600px)" sc-camel-src-set="{{ sec.figImgMobile }}">
               <img src="{{ sec.figImg }}" alt="{{ sec.fig }}" sc-camel-tab-index="0" role="button" onClick="{{ sec.openFig }}" onKeyDown="{{ sec.openFigKey }}" style="width:100%;display:block;border-radius:12px;border:1px solid rgba(35,31,26,.14);cursor:zoom-in">
@@ -265,28 +273,33 @@
     </div>
     <div style="flex:1 1 420px;min-width:0">
       <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#862809;display:inline-flex;align-items:center;gap:9px;margin-bottom:16px"><span style="width:7px;height:7px;background:#A09BE7;border-radius:2px;flex:none"></span>About</div>
-      <h1 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.14;letter-spacing:-.01em;font-size:clamp(30px,4.5vw,46px);margin:0;text-wrap:balance">I started as an engineer. I think that's my whole advantage.</h1>
+      <h1 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;line-height:1.14;letter-spacing:-.01em;font-size:clamp(30px,4.5vw,46px);margin:0;text-wrap:balance">Hi! I'm Latika. I'm a natural creative with an eye for engineering and design.</h1>
     </div>
   </div>
   <div style="max-width:none;padding-bottom:40px;position:relative">
     <sc-if value="{{ showSparkles }}" hint-placeholder-val="{{ true }}"><svg style="position:absolute;top:46px;right:8px;pointer-events:none;opacity:.4" width="24" height="17" viewBox="0 0 30 20" stroke="#A09BE7" aria-hidden="true"><use href="#sp-squig"></use></svg></sc-if>
     <h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;font-size:clamp(20px,2.4vw,24px);margin:40px 0 12px">How I got here</h3>
-    <p style="margin:0 0 15px;max-width:72ch">I started out as a software engineer, close enough to the build to earn 24 patents, before moving into product design. I left Capital One and came back, so I've seen the same systems from both the engineering side and the design side, and that double vision is what I lead with.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;margin:0 0 15px">
+    <p style="margin:0;flex:1 1 380px;min-width:0">I've always had a creative mind but found the puzzle-solving aspect of CS fascinating so I started my career as a software engineer. One fun fact is that when I was a developer, I filed hundreds of patents with the USPTO and now have 44 granted in the US!<br><br>I realized that the puzzles I found most satisfying to solve were the people-related ones. I took the leap to come over to UX Design and loved it! The design thinking process mirrors the scientific method beautifully and genuinely uses both sides of my brain.<br><br>Since I've seen the same systems from both an engineering side and a design side, I make sure to keep that perspective in mind as I build products.</p>
+    <img src="assets/about-patents.webp" alt="Diagram from one of Latika's granted USPTO patents" style="flex:0 1 300px;width:300px;height:360px;max-width:100%;object-fit:cover;border-radius:14px;border:1px solid rgba(35,31,26,.14)">
+    </div>
     <h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;font-size:clamp(20px,2.4vw,24px);margin:40px 0 12px">How I work</h3>
-    <p style="margin:0 0 15px;max-width:72ch">I design for everyone in the room: the person using it, the team building it, and the business betting on it. Because I started as an engineer, I know what it costs to build the thing on the other side of the screen, so I look for the solution that works for all three. I use AI tools throughout my process, but the judgment is mine, and that's the part that matters.</p>
+    <p style="margin:0 0 15px">I design for everyone in the room: the person using it, the team building it, and the business betting on it (the classic three-legged stool!). This holistic perspective of product design means I can work closely with my stakeholders and lean on their strengths to help build the best product possible.<br><br>I use AI tools liberally in my process to brainstorm and help find blind spots, but the end judgement is always mine to make.</p>
     <h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;font-size:clamp(20px,2.4vw,24px);margin:40px 0 12px">A little more of me</h3>
-    <p style="margin:0 0 15px;max-width:72ch">Away from the screen, I make things with my hands, ceramics, crochet, whatever the current hobby is. It's the same instinct as the day job: care about how a thing is made and how it feels to use. There's more of that over on <a href="#/otc" style="color:#862809">Off the Clock</a>.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;margin:0 0 15px">
+    <img src="assets/about-maker.webp" alt="One of Latika's handmade ceramic mugs with a sculpted bow on the handle" style="flex:0 1 300px;width:300px;height:360px;max-width:100%;object-fit:cover;border-radius:14px;border:1px solid rgba(35,31,26,.14)">
+    <p style="margin:0;flex:1 1 380px;min-width:0">Away from the screen, I'm a maker! Some of my hobbies include fiber arts, teaching, junk journaling, dog training, and ceramics! I have a part-time pottery business called Seconds Ceramics that allows me to share a bit of my creativity with the world. There's more info over on <a href="#/otc" style="color:#862809">Off the Clock</a>.</p>
+    </div>
     <h3 style="font-family:'Newsreader',Georgia,serif;color:#231F1A;font-weight:500;font-size:clamp(20px,2.4vw,24px);margin:40px 0 12px">What I'm looking for</h3>
-    <p style="margin:0 0 15px;max-width:72ch">A senior product design role on a mission-driven team. I'm in the DC area and open to remote or relocating for the right one.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin:24px 0 40px">
+    <p style="margin:0 0 15px">A senior product design role on a mission-driven team. I'm in the DC area and open to remote or relocating for the right one.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));max-width:900px;gap:20px;margin:24px 0 40px">
       <sc-for list="{{ aboutQuotes }}" as="tq" hint-placeholder-count="3">
-        <div style="background:#F3EBDC;border:1px solid rgba(35,31,26,.14);border-radius:14px;padding:22px">
+        <div style="background:#FFFDF8;border:1px solid rgba(35,31,26,.14);border-radius:14px;padding:22px">
           <p style="font-size:15px;margin:0 0 12px">"{{ tq.q }}"</p>
           <div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#862809">{{ tq.who }}</div>
         </div>
       </sc-for>
     </div>
-    <a href="#contact" onClick="{{ goContact }}" style="background:#862809;color:#FFFAF0;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:13px;letter-spacing:.02em;padding:12px 20px;border-radius:9px;text-decoration:none;display:inline-block;transition:background .15s,transform .15s" style-hover="background:#6f210a;transform:translateY(-1px)">Say hi</a>
   </div>
 </div>
 </sc-if>
@@ -459,35 +472,40 @@ class Component extends DCLogic {
       title: 'Calibrating Friction: Redesigning iOTP Authentication at Capital One',
       summary: "Streamlined Capital One's Interactive OTP experience by balancing security requirements with measurable usability gains.",
       role: 'Solo UX/UI Designer', team: 'Me (designer), Product Owner, Developers', timeline: '6 weeks', tools: 'Figma, UserTesting.com',
-      client: 'Capital One', tags: ['Authentication', 'Interaction Design', 'Research'],
+      client: 'Capital One', tags: ['Authentication', 'Mobile Design', 'Research'],
       hooks: ['how I decided where the moment of friction should go', 'the tradeoff between security cost and completion rate', 'what I would test next if I were still on it'],
       sections: [
         { h: 'The problem: a secure flow users kept abandoning', ps: [
-          "Capital One customers are quietly being protected by a layered authentication system every time they log in. For more risky tasks like wiring money, users are asked to complete a secondary authentication step to prove it's really them.",
+          "Capital One customers are protected by a layered authentication system every time they log in whether they realize it or not. For more risky tasks like wiring money, users are asked to complete a secondary authentication step to prove it's really them.",
           "SMS one time pins are Capital One's most used authenticator, which also makes them a favorite target for fraudsters. One of the most common attacks is vishing: a scammer calls pretending to be from Capital One and talks the user into reading back their code. A standard OTP can't protect against that, because the code on its own doesn't tell the user what it's unlocking.",
-          "Interactive OTP (iOTP) closes that gap by turning the code into a conversation. Instead of a string of numbers, users get a text that does three things:"
+          "Interactive OTP (iOTP) helps reduce fraud by turning the code into a conversation. Instead of a string of numbers, users get a text that does three things:"
         ],
           list: [
-            "Context: it tells them exactly what was requested, like adding an external account",
-            "Confirmation: it asks them to reply yes or no, so they're approving or rejecting that specific action",
-            "Protection: if they reply no, it points them to the number on the back of their card and reminds them Capital One will never call asking for this info"
+            { inl: 'Context:', text: 'it tells them exactly what was requested, like adding an external account' },
+            { inl: 'Confirmation:', text: "it asks them to reply yes or no, so they're approving or rejecting that specific action" },
+            { inl: 'Protection:', text: 'if they reply no, it points them to the number on the back of their card and reminds them Capital One will never call asking for this info' }
           ],
           ps2: [
             "That's what makes iOTP more secure. It's also exactly what made it harder to finish, since users had to leave the app and actually engage instead of waiting for a code to autofill.",
             "The main issue was that users kept dropping off, and that lower completion rate meant the largest Capital One lines of business didn't feel comfortable implementing iOTP, which left them exposed to more risk."
           ],
-          fig: 'how iOTP works / context, confirmation, protection', figImg: 'assets/case-iotp-sms-flow.webp', figWide: true },
+          fig: 'how iOTP works / context, confirmation, protection', figImg: 'assets/case-iotp-sms-flow.webp', figWide: true, figHalf: true },
         { h: 'Understanding the role of friction in authentication', ps: [
-          "Before touching any designs, I dug into the research database to see what relevant information I could find. Luckily, researchers on my team were doing some investigation into how customers view friction during authentication. Through their findings, I learned that users expect a little bit of friction when accessing their money to feel safe. They want to feel that their bank takes protecting their money seriously, but they don't want to slow down unnecessarily either. This means that the goal wasn't to eliminate the iOTP friction completely, but instead to calibrate it."
+          "Before touching any designs, I dug into the research database to see what relevant information I could find. Luckily, design researchers on my team were actively investigating how customers view friction during authentication. Through their findings, I learned that users actually expect a little bit of friction when dealing with their money to feel safe. They want to feel that their bank takes protecting their money seriously, but they don't want to slow down unnecessarily either. This means that the goal wasn't to eliminate the iOTP friction completely, but instead to calibrate it."
         ] },
         { h: 'Finding the drop-off point', ps: [
-          'Through looking at funnel analytics given to me by my PM and dev team, we found the core failure point was that users didn\'t realize they had to leave the Capital One app. Modern OTP has trained people to expect the code to autofill, and my hunch was that this is what tripped users up.'
+          'Through looking at funnel analytics given to me by my PM and dev team, I found the core failure point was that users didn\'t realize they had to leave the Capital One app. Modern OTP has trained people to expect the code to autofill, and my hunch was that this is what tripped users up.'
         ] },
         { h: 'Brainstorming solutions, testing with users', ps: ['I started with four hypotheses about why users were dropping off and designed a flow around each. Once I showed these to my product and tech partners, we narrowed it down to the three strongest to test with users.'],
           list: ["Hypothesis: Users don't know they can't enter the code right away. Experiment: Copy changes only, telling users to reply to our text before looking for a code. This was the cheapest and easiest fix, so we wanted to see how far it could get us on its own.", "Hypothesis: Users don't know they have to open their messaging app. Experiment: An explanatory screen before the text is sent, with a button that opens their messages directly.", "Hypothesis: Users don't trust a text asking them to reply. Experiment: Reframing the setup as \"Get a text from Capital One\" so the reply step felt expected and legitimate."],
-          ps2: ['Each flow was tested with 10 users on UserTesting.com and benchmarked against the original iOTP flow as a control (40 users total).', "Round one showed that copy alone wasn't enough, and users didn't understand the purpose of the new explanatory screen, so they skimmed right past it. For round two, I combined the strongest pieces into a new approach (a modal at the exact moment of confusion, paired with revised copy). Throughout both rounds, I refined based on what the data showed and technical feasibility rather than what my team and I assumed would be best."],
+          ps2: ['I tested each flow with 10 users on UserTesting.com and benchmarked against the original iOTP flow as a control (40 users total).', "Round one showed that copy alone wasn't enough, and users didn't understand the purpose of the new explanatory screen, so they skimmed right past it. For round two, I combined the strongest pieces into a new approach (a modal at the exact moment of confusion, paired with revised copy). Throughout both rounds, I refined based on what the data showed and technical feasibility rather than what my team and I assumed would be best."],
           fig: 'the flows explored, including variants cut before testing', figImg: 'assets/case-iotp-flow-variants.webp', figWide: true, figCaption: 'Details blurred for NDA' },
-        { h: 'The validated approach', ps: ['The winning approach combined three changes:'],
+        { h: 'Designing across platforms', ps: [
+          "iOTP lives across five form factors, so I designed each flow for desktop, iPhone/iPad, and Android phone/Android tablet.",
+          "The key moment in the flow is the modal that interrupts users right where they get confused, and I adapted it to each OS. On iOS it appears as a bottom sheet, and on Android it's a centered dialog. The design systems handled the finer differences in look and feel, which let me focus on making the moment work the same way everywhere.",
+          "I also designed for the Android system back button. It returns users to the prior step, just like the in-app back on iOS, so someone backing out mid-flow gets the same predictable result on either platform."
+        ] },
+        { h: 'The validated approach', ps: ['I found that the best approach combined three changes:'],
           list: [
             'A modal at the critical moment: rather than a preparatory screen users could skim past, a modal interrupted the flow at the exact point where confusion was highest, forcing a moment of pause.',
             'Revised copy: language that reframed the extra step as a sign of stronger security rather than an inconvenience. The goal was to make users feel like the friction was working for them, not against them. For users moving quickly through the flow, the copy provided a clear signal that iOTP was different from standard OTP.',
@@ -495,8 +513,8 @@ class Component extends DCLogic {
           ], fig: 'after state / the modal at the moment of confusion', figImg: 'assets/case-iotp-after.jpg' },
         { h: 'Outcomes, handoff, and reflection', ps: [
           'The redesign projected a 20% improvement in user completion rates based on usability testing data, ahead of A/B test launch. SMS cost per session was also reduced, lowering operational overhead without any user-facing changes. These findings were then presented directly to the Capital One Card team, the largest line of business, with the expectation that smaller lines of business would follow suit once Card was on board.',
-          'With usability testing complete, designs were handed off to development and queued for A/B testing to validate the projected improvements at scale.',
-          "This project reinforced something I carry into every authentication or high-stakes flow: the goal is never zero friction. It's the right friction. Users need to feel that their bank is working to protect them and the design's job is to make that clear."
+          'With usability testing complete, designs were handed off to development and queued for A/B testing to validate the projected improvements at scale. They\'re the standard for iOTP at Capital One as of October 2026.',
+          "This project reinforced something I carry into every authentication or high-stakes flow: the goal is never zero friction. It's the right friction. Users need to feel that their bank is always working to protect them and my job is to make that clear."
         ] }
       ],
       quote: '', quoteWho: ''
@@ -690,9 +708,9 @@ class Component extends DCLogic {
     };
     const prev = stepCase(csIdx, -1);
     const next = stepCase(csIdx, 1);
-    const splitItem = (x) => { const m = x.match(/^(Hypothesis:[\s\S]*?)\s*(Experiment:[\s\S]*)$/); return m ? { lead: m[1].trim(), text: m[2] } : { lead: '', text: x }; };
+    const splitItem = (x) => { if (typeof x === 'object') return { lead: '', ...x }; const m = x.match(/^(Hypothesis:[\s\S]*?)\s*(Experiment:[\s\S]*)$/); if (m) return { lead: m[1].trim(), text: m[2] }; const c = x.match(/^([^:]{1,40}:)\s+([\s\S]*)$/); return c ? { lead: '', inl: c[1], text: c[2] } : { lead: '', text: x }; };
     const norm = (s) => ({
-      h: s.h, ps: s.ps || [], list: (s.list || []).map(splitItem), ps2: s.ps2 || [], fig: s.fig || '', figImg: s.figImg || '', figImgMobile: s.figImgMobile || s.figImg || '', figCaption: s.figCaption || '', figImgNarrow: !!(s.figImg && !s.figWide), figImgWide: !!(s.figImg && s.figWide), figIsText: !!(s.fig && !s.figImg),
+      h: s.h, ps: s.ps || [], list: (s.list || []).map(splitItem), ps2: s.ps2 || [], fig: s.fig || '', figImg: s.figImg || '', figImgMobile: s.figImgMobile || s.figImg || '', figCaption: s.figCaption || '', figImgNarrow: !!(s.figImg && !s.figWide), figImgWide: !!(s.figImg && s.figWide && !s.figHalf), figImgHalf: !!(s.figImg && s.figHalf), figIsText: !!(s.fig && !s.figImg),
       openFig: (e) => this._openLightbox(s.figImg, s.fig, e),
       openFigKey: (e) => { if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); this._openLightbox(s.figImg, s.fig, e); } }
     });
